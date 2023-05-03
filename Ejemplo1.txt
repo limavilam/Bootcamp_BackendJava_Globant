@@ -1,0 +1,13 @@
+Algoritmo sin_titulo
+	Definir palabra Como Caracter
+	Definir num Como Entero 
+	
+	leer palabra
+	leer num
+	//Leer, lee lo que yo ponga en el teclado y lo va a guardar en la
+	//Y lo va a guardar en la caja o la variable que yo diga.
+	
+	escribir "La palabra que integraste es: ", palabra //Llamamos la variable que queremos que guarde la información que ingresa
+	escribir "El numero que ingresaste es: " , num 
+	
+FinAlgoritmo
