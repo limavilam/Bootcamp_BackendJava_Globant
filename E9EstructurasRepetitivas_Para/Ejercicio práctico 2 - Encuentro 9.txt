@@ -1,0 +1,32 @@
+//Realizar un programa que pida una frase y el programa deberá mostrar la frase con un
+//espacio entre cada letra. La frase se mostrará así: H o l a. Nota: recordar el
+//funcionamiento de la función Subcadena().
+//NOTA:. En PseInt, si queremos escribir sin que haya saltos de línea, al final de la
+//operación "escribir" escribimos "sin saltar". Por ejemplo:
+//Escribir sin saltar "Hola, "
+//Escribir sin saltar "cómo estás?"
+//Imprimirá por pantalla: Hola, cómo estás?
+
+Algoritmo fraseSinEspacios
+	
+	Definir frase Como Cadena
+	Definir letra Como Caracter
+	Definir cantidadLetras Como Entero
+	Definir i Como Entero
+	
+	Escribir "Ingrese una frase:"
+	Leer frase
+	
+	cantidadLetras <- Longitud(frase)
+	
+	Para i <- 0 Hasta cantidadLetras-1 Con Paso 1
+		letra <- Subcadena(frase, i, i)
+//Es para omitir el espacio inicial, por eso se usa i==0
+
+		Si i == 0 Entonces
+			Escribir letra Sin Saltar
+		SiNo
+			Escribir " " letra Sin Saltar 
+		FinSi
+	FinPara
+FinAlgoritmo

@@ -1,0 +1,26 @@
+//Siguiendo el ejercicio 2 de los ejercicios principales, ahora deberemos hacer lo mismo
+//pero que la cadena se muestre al revés. Por ejemplo, si tenemos la cadena: Hola,
+//deberemos mostrar a l o H.
+
+Algoritmo fraseSinEspacios
+	
+	Definir frase Como Cadena
+	Definir letra Como Caracter
+	Definir cantidadLetras Como Entero
+	Definir i Como Entero
+	
+	Escribir "Ingrese una frase:"
+	Leer frase
+	
+	cantidadLetras <- Longitud(frase)
+	letra <- ""
+	
+	Para i <- cantidadLetras  Hasta 0 Con Paso -1
+		letra <- Subcadena(frase, i, i)
+		Si i == 0 Entonces
+			Escribir letra Sin Saltar
+		SiNo
+			Escribir " " letra Sin Saltar 
+		FinSi
+	FinPara
+FinAlgoritmo

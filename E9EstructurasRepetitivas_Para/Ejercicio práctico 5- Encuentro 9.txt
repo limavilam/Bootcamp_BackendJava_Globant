@@ -1,0 +1,21 @@
+//Escribir un programa que calcule la suma de los N primeros números naturales. El valor
+//de N se leerá por teclado.
+
+Algoritmo numerosNaturales
+	
+	Definir num, suma, i Como Entero
+	
+	Hacer
+		Escribir "Ingrese un número entero positivo:"
+		Leer num 
+	Mientras Que num <=0
+	
+	suma = 0 //va a guardar el resultado.
+	i = 1  //se denomina variable centinela porque se encuentra dentro de la expresión lógica pero a su vez se modifica dentro del bloque de acciones.
+	
+	Para i=1 Hasta num Hacer
+		suma = suma + i
+	Fin Para
+	
+	Escribir "La suma de los ", num, " números naturales es: " , suma
+FinAlgoritmo

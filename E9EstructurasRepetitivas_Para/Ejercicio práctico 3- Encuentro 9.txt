@@ -1,0 +1,79 @@
+//Un docente de Programación tiene un listado de 3 notas registradas por cada uno de sus
+//N estudiantes. La nota final se compone de un trabajo práctico Integrador (35%), una
+//Exposición (25%) y un Parcial (40%). El docente requiere los siguientes informes claves
+//de sus estudiantes:
+//	? Nota promedio final de los estudiantes que reprobaron el curso. Un estudiante
+//	reprueba el curso si tiene una nota final inferior a 6.5
+//	? Porcentaje de alumnos que tienen una nota de integrador mayor a 7.5.
+//	? La mayor nota obtenida en las exposiciones.
+//	? Total de estudiantes que obtuvieron en el Parcial entre 4.0 y 7.5.
+//El programa pedirá la cantidad de alumnos que tiene el docente y en cada alumno pedirá
+//las 3 notas y calculará todos informes claves que requiere el docente.
+
+Algoritmo calificacionesAlumnos
+	
+	Definir cantidadAlumnos como Entero
+	Definir i como Entero
+	Definir notaIntegrador como Real
+	Definir notaExposicion como Real
+	Definir notaParcial como Real
+	Definir notaFinal como Real
+	
+	// Variales para las respuestas
+	Definir sumatoriaNotasEstudiantesReprobados Como Real
+	Definir numeroDeEstudiantesReprobados Como Entero
+	Definir estudiantesConIntegradorMayor Como Entero
+	Definir notaMaximaExposiciones Como Real
+	Definir totalDeEstudiantesNotaParcial Como Entero
+	
+	sumatoriaNotasEstudiantesReprobados <- 0
+	numeroDeEstudiantesReprobados <- 0
+	estudiantesConIntegradorMayor <- 0
+	notaMaximaExposiciones <- 0
+	totalDeEstudiantesNotaParcial <- 0
+	
+	Escribir "Ingresa la cantidad de alumnos"
+	Leer cantidadAlumnos
+	
+	Para i <-1 Hasta cantidadAlumnos Con Paso 1 Hacer
+		Escribir "Ingrese la nota del trabajo práctico integrador estudiante " , i, " :" 
+		Leer notaIntegrador
+		Escribir "Ingrese la nota de la exposición estudiante " , i, " :" 
+		Leer notaExposicion
+		Escribir "Ingrese la nota del parcial estudiante " , i, " :" 
+		Leer notaParcial
+		
+		notaFinal <- (notaIntegrador *0.35) + (notaExposicion *0.25) + (notaParcial * 0.40)
+		
+		//Nota promedio final de los estudiantes que reprobaron el curso. Un estudiante
+		//reprueba el curso si tiene una nota final inferior a 6.5
+		
+		Si notaFinal < 6.5 Entonces
+			Escribir "Reprobado" 
+			numeroDeEstudiantesReprobados  <- numeroDeEstudiantesReprobados  + 1
+			sumatoriaNotasEstudiantesReprobados <- sumatoriaNotasEstudiantesReprobados + notaFinal //Va notafinal porque es un contador de las notas.
+		FinSi
+		
+		//Porcentaje de alumnos que tienen una nota de integrador mayor a 7.5.
+		Si notaIntegrador > 7.5 Entonces
+			estudiantesConIntegradorMayor <- estudiantesConIntegradorMayor + 1
+		FinSi
+		
+		//La mayor nota obtenida en las exposiciones.
+		Si notaExposicion > notaMaximaExposiciones Entonces
+			notaMaximaExposiciones = notaExposicion
+		FinSi
+		
+		//Total de estudiantes que obtuvieron en el Parcial entre 4.0 y 7.5.
+		Si notaParcial > 4.0 Y notaParcial < 7.5 Entonces 
+			totalDeEstudiantesNotaParcial <- totalDeEstudiantesNotaParcial + 1
+		FinSi
+		
+	Fin Para
+	
+	Escribir "Nota promedio final estudiantes reprobados: ", (sumatoriaNotasEstudiantesReprobados/numeroDeEstudiantesReprobados)
+	Escribir "El porcentaje de alumnos con nota de trabajo integrador mayor a 7.5 es:  " , (estudiantesConIntegradorMayor * 100/cantidadAlumnos), " % "
+	Escribir "La mayor nota obtenida en la exposiciones es: ", notaMaximaExposiciones
+	Escribir "El total de estudiantes que obtuvieron en el parcial notas entre 4.0 y 7.5: ", totalDeEstudiantesNotaParcial
+	
+FinAlgoritmo
