@@ -1,0 +1,51 @@
+//Realizar un programa que lea un número entero (tamaño del lado) y a partir de él cree un cuadrado de asteriscos de ese tamaño. 
+//Los asteriscos sólo se verán en el borde del cuadrado, no en el interior. Por ejemplo, si se ingresa el número 4 se debe mostrar:
+
+Algoritmo cuadroasteriscos
+	
+	Definir num Como Entero
+	Definir num2 Como Entero
+	Definir lado Como Entero
+	Definir i Como Entero
+	
+	Escribir "Ingrese el número:"
+	Leer num
+	
+	Escribir "ingrese el número"
+	Leer num2
+	
+	Para i = 0 Hasta num Con Paso 1 Hacer
+		
+		Para lado = 0 Hasta num2 Con Paso 1 Hacer
+			
+			Si (i = 0 o i = num) o (lado = 0 o lado= num2) Entonces 
+				Escribir "*" Sin Saltar
+			SiNo
+				Escribir " " Sin Saltar
+			FinSi
+			
+		Fin Para
+		Escribir " "
+		
+	Fin Para
+	
+	
+FinAlgoritmo
+
+Algoritmo BucleAnidado2
+	Definir lado Como Entero
+	Escribir "Ingrese el tamaño del lado del cuadrado"
+	Leer lado
+	para i = 0 Hasta lado-1
+		para j = 0 Hasta lado -1
+			Si (j == 0 o j == lado -1) o (i == 0 o i = lado-1)
+				Escribir Sin Saltar "*"
+			SiNo 
+				Escribir Sin Saltar " "
+				//Escribir Sin Saltar "(",i,",",j,")"
+			FinSi
+		FinPara
+		Escribir ""
+	FinPara
+	
+FinAlgoritmo
