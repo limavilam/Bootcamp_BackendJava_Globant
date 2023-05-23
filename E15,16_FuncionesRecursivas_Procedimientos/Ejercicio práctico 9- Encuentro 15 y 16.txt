@@ -1,0 +1,73 @@
+//Diseñar un procedimiento que reciba una frase, y el programa remueva todas las vocales
+//repetidas. Al final el procedimiento mostrará la frase final.
+//Por ejemplo:
+//Entrada: "Habia una vez un barco"
+//Salida: "Habi un vez n brco"
+//Se marcan en rojo las repetidas sólo para explicar la consigna. Las vocales ?e?, ?i? y ?o? quedan
+//al no estar repetidas.
+
+Algoritmo removervocales
+	
+	Definir frase Como Caracter
+	
+	Escribir "Ingrese una frase:"
+	Leer frase	
+	
+	Escribir removerVocalesRepetidas(frase)
+	
+FinAlgoritmo
+
+SubProceso nuevaCadena = removerVocalesRepetidas(frase Por Valor)
+	Definir longitudFrase Como Entero
+	Definir i Como Entero
+	Definir caracterActual Como Caracter
+	Definir nuevaCadena Como Caracter
+	Definir aEstaRepetida Como Logico
+	Definir eEstaRepetida Como Logico
+	Definir iEstaRepetida Como Logico
+	Definir oEstaRepetida Como Logico
+	Definir uEstaRepetida Como Logico
+	
+	longitudFrase <- Longitud(frase)
+	nuevaCadena = " "
+	aEstaRepetida = Falso
+	eEstaRepetida = Falso
+	iEstaRepetida = Falso
+	oEstaRepetida = Falso
+	uEstaRepetida = Falso
+	
+	//Se inicia en 1 se pierde la primera letra. 
+	Para i<-0 Hasta longitudFrase Con Paso 1 Hacer
+		//Inicia a iterar
+		caracterActual = Subcadena(frase, i, i)
+		Segun caracterActual
+			"a":
+				Si no aEstaRepetida
+					nuevaCadena = Concatenar(nuevaCadena, caracterActual)
+				FinSi
+				aEstaRepetida = Verdadero
+			"e":
+				Si no eEstaRepetida
+					nuevaCadena = Concatenar(nuevaCadena, caracterActual)
+				FinSi
+				eEstaRepetida = Verdadero
+			"i":
+				Si no iEstaRepetida
+					nuevaCadena = Concatenar(nuevaCadena, caracterActual)
+				FinSi
+				iEstaRepetida = Verdadero
+			"o":
+				Si no oEstaRepetida
+					nuevaCadena = Concatenar(nuevaCadena, caracterActual)
+				FinSi
+				oEstaRepetida = Verdadero
+			"u":	
+				Si no uEstaRepetida
+					nuevaCadena = Concatenar(nuevaCadena, caracterActual)
+				FinSi
+				uEstaRepetida = Verdadero
+			De Otro Modo:
+				nuevaCadena = Concatenar(nuevaCadena, caracterActual)
+		FinSegun
+	Fin Para	
+FinSubProceso

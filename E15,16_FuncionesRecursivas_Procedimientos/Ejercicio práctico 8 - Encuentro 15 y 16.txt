@@ -1,0 +1,76 @@
+//Realice un algoritmo que solicite al usuario una fecha y muestre por pantalla la fecha anterior.
+//Para ello se deberá utilizar un procedimiento llamado diaAnterior que reciba una fecha
+//representada a través de tres enteros dia, mes y anio, y retorne la fecha anterior. Puede
+//asumir que dia, mes y anio representan una fecha válida. Realice pruebas de escritorio para
+//los valores dia=5, mes=10, anio=2012 y para dia=1, mes=3, anio=2004.
+
+Algoritmo diasValidos
+	
+	Definir dia Como Entero
+	Definir mes Como Entero
+	Definir anio Como Entero
+	
+	Escribir "Ingrese un día (1-31): "
+	Leer dia 
+	Escribir "Ingrese un mes (1-12): "
+	Leer mes
+	Escribir "Ingrese un año: "
+	Leer anio
+	
+	Escribir "Fecha ingresada:", dia, "/", mes, "/", anio
+	Escribir "Fecha anterior es:" Sin Saltar
+	diaAnterior(dia,mes,anio)
+	
+FinAlgoritmo
+
+SubProceso diaAnterior(dia, mes, anio)
+	// Cuando dia sea 1 y mes 1 debemos devolver el dia final del mes anterior.
+	Si mes == 1 y dia == 1
+		Escribir 31,"-" 12, "-" anio-1
+	SiNo
+		//cuando el día sea 1, nos devolvemos al mes anterior.
+		Si dia == 1
+			obtenerFechaMesAnterior(dia, mes, anio)
+		SiNo
+			//un día cualquiera sin cambiar mes ni año.
+			Escribir dia-1, "-", mes, "-", anio
+		FinSi
+	FinSi	
+FinSubProceso
+
+SubProceso obtenerFechaMesAnterior(dia, mes, anio)
+	mes = mes -1
+	Si mes == 3 o mes == 5 o mes == 7 o mes == 8 o mes == 10 o mes == 12 
+		dia = 31
+	SiNo
+		Si mes == 2 
+			dia = fechaFebrero(dia, anio)
+		SiNo
+			dia = 30
+		FinSi
+	FinSi	
+	Escribir dia,"-" mes, "-" anio 
+FinSubProceso
+
+SubProceso diaFeb = fechaFebrero(dia, anio)
+	Definir diaFeb Como Entero
+	Si esBisiesto(anio)
+		diaFeb = 29
+	SiNo
+		diaFeb = 28
+	FinSi
+FinSubProceso
+
+SubProceso validacion =  esBisiesto(anio)
+	Definir validacion Como Logico
+	Si anio MOD 4 = 0 Y anio MOD 100 <> 0  Entonces 
+		validacion = Verdadero
+	SiNo
+		Si anio MOD 100 = 0 Y anio MOD 400 = 0 Entonces
+			validacion = Verdadero
+		SiNo 
+			validacion = Falso
+		FinSi			
+	FinSi		
+FinSubProceso
+	

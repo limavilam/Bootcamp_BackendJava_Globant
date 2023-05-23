@@ -1,0 +1,41 @@
+//Crea un procedimiento "convertirEspaciado", que reciba como argumento un texto y muestra
+//una cadena con un espacio adicional tras cada letra.
+//Por ejemplo, "Hola, tú" devolverá "H o l a , t ú ". Crea un programa principal donde se use
+//dicho procedimiento.
+
+Algoritmo caracteresConEspacio
+	
+	Definir frase Como Cadena	
+	
+	Escribir "Ingrese una frase:"
+	Leer frase
+	
+	
+	convertirEspaciado(frase)
+	
+FinAlgoritmo
+
+SubProceso convertirEspaciado(frase por valor)
+	
+	Definir i Como Entero
+	Definir cantidadLetras Como Entero
+	Definir letra Como Caracter
+	
+	cantidadLetras <- Longitud(frase)
+	
+	Para i <- 0 Hasta cantidadLetras-1 Con Paso 1
+		letra <- Subcadena(frase, i, i)
+		
+		//Si==0, indica que el primer carácter no debe tener un espacio adicional delante de él.
+		Si i == 0 Entonces
+			Escribir letra Sin Saltar
+		SiNo
+			Escribir "  " letra Sin Saltar
+		FinSi
+	FinPara
+	//para dar el salto del fin del Algoritmo 
+	Escribir " "
+	
+FinSubProceso
+	
+

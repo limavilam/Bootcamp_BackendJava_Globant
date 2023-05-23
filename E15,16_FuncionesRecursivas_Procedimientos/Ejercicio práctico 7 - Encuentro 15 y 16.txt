@@ -1,0 +1,39 @@
+//Crear un programa que dibuje una escalera de números, donde cada línea de números
+//comience en uno y termine en el número de la línea. Solicitar la altura de la escalera al usuario
+//al comenzar. Ejemplo: si se ingresa el número 3:
+//1
+//12
+//123
+
+Algoritmo escaleraNumerica
+	
+	Definir num Como Entero
+		
+	Escribir "Ingrese la altura de la escalera numérica:"
+	Leer num
+	
+	escaleraDeNumeros(num)
+	
+FinAlgoritmo
+	
+SubProceso escaleraDeNumeros(num Por Valor)
+	
+	Definir j Como Entero
+	Definir i Como Entero
+	
+	Para i = 0 Hasta num Con Paso 1 Hacer		
+		//va hasta i porque es el número actual.
+		Para j = 1 Hasta i Con Paso 1 Hacer
+			Escribir j Sin Saltar
+		Fin Para
+		//Da la forma de escalera
+		Escribir " "
+		
+	Fin Para
+	
+FinSubProceso
+
+	
+	
+
+

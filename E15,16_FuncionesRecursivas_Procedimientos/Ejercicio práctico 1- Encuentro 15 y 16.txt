@@ -1,0 +1,40 @@
+//Realizar un procedimiento que permita intercambiar el valor de dos variables de tipo entero.
+//La variable A, debe terminar con el valor de la variable B.
+
+Algoritmo intercambioDeVariables
+	
+	Definir num1 Como Entero
+	Definir num2 Como Entero
+	
+	Escribir "Ingrese número 1:"
+	Leer num1
+	
+	Escribir "Ingrese número 2:"
+	Leer num2
+	
+	Escribir "EL valor de la varible 1 al iniciar es:" , num1 " y de la segunda es:", num2
+	
+	intercambioValores(num1,num2) 
+	Escribir "EL valor de la varible 1 al finalizar es:" , num1 " y de la segunda es:", num2
+		
+FinAlgoritmo
+	
+SubProceso intercambioValores(num1 Por Referencia, num2 Por Referencia)
+	//Para que no se pierda el valor de la variable que es reemplazada.
+	Definir temp Como Entero
+	
+	temp <- num1
+	num1 <- num2
+	num2 <- temp
+	
+FinSubProceso
+
+//SubProceso intercambioValores2(num1 Por Referencia,num2 por Valor)
+	
+	//num1 = num2
+	//num2 = num2 
+	
+//FinSubProceso
+
+		
+
