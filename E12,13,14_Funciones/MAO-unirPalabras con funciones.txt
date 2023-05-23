@@ -1,0 +1,31 @@
+//Realiza una función llamada Cooperar que reciba dos variables de tipo carácter, una variable debe
+//contener el mensaje "Cooperando" y la otra "trabajamos mejor". La función debe concatenar
+//ambos textos.
+
+Algoritmo unirPalabras
+	Definir palabra1 Como Caracter
+	Definir palabra2 Como Caracter
+	
+	Escribir "Ingrese la palabra1:"
+	Leer palabra1
+	
+	Escribir "Ingrese la palabra2:"
+	Leer palabra2
+	
+	Escribir "La palabra ingresada es:", cooperar(palabra1,palabra2)
+	
+FinAlgoritmo
+
+Funcion retorno <- cooperar ( palabra1, palabra2)
+	Definir retorno Como Caracter
+	retorno = Concatenar(palabra1,palabra2)
+FinFuncion
+
+
+
+
+
+
+
+
+

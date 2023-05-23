@@ -1,0 +1,36 @@
+//Realizar una función que calcule la suma de los dígitos de un número.
+//Ejemplo: 25 = 2 + 5 = 7
+//Nota: Para obtener el último número de un digito de 2 cifras o más debemos pensar en el
+//resto de una división entre 10. Recordar el uso de la función Mod y Trunc.
+
+Algoritmo digitoSuma
+	
+	Definir num1 Como Entero
+	
+	Escribir "Ingrese el número que desea evaluar:"
+	Leer num1
+	
+	Escribir "La suma de los digitos del número " , num1, " es: ", sumatoria(num1)
+FinAlgoritmo
+	
+	Funcion sumaDigitos <- sumatoria(num1)
+		Definir sumaDigitos Como Entero
+		Definir digito Como Entero
+		Definir suma Como Entero
+		
+		sumaDigitos <- 0
+		
+		Mientras num1 > 0 Hacer
+			digito = num1 MOD 10
+			num1 = TRUNC(num1/10)
+			sumaDigitos = sumaDigitos + digito			
+		Fin Mientras		
+FinFuncion
+
+//Número 123:
+/// ciclo 1: 123 mod 10 = 3 ; 123 / 10 = 12
+/// ciclo 2: 12 mod 10 = 2 ; 12 / 10 = 1
+/// ciclo 3: 1 mod 10 = 1 ; 1 / 10 = 0 
+
+		
+

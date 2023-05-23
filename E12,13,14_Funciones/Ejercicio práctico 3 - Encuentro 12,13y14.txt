@@ -1,0 +1,24 @@
+//Crea una función EsMultiplo que reciba los dos números pasados por el usuario, validando
+//que el primer número múltiplo del segundo y devuelva verdadero si el primer número es
+//múltiplo del segundo, sino es múltiplo que devuelva falso.
+
+Algoritmo numeroMultiplo
+	Definir numero1 Como Entero
+	Definir numero2 Como Entero
+		
+	Escribir "Ingrese el número 1:"
+	Leer numero1
+	
+	Escribir "Ingrese el número 2:"
+	Leer numero2	
+	
+	Escribir "El número ", numero1, " es multiplo de " , numero2, " ", esMultiplo(numero1,numero2)
+	
+	
+FinAlgoritmo
+
+//Si b es un múltiplo de a, entonces a es un divisor de b.
+Funcion retornoMultiplos = esMultiplo(numero1,numero2)
+	Definir retornoMultiplos Como Logico
+	retornoMultiplos = numero1 MOD numero2 = 0
+FinFuncion

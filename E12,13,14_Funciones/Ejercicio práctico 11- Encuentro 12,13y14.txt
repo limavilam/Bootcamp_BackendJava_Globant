@@ -1,0 +1,41 @@
+//Realizar una función que reciba un numero ingresado por el usuario y averigüe si el número
+//tiene todos sus dígitos impares (ejemplo: 333, 55, etc.). Para esto vamos a tener que separar el
+//numero en partes (si es un numero de más de un digito) y ver si cada número es par o impar.
+//Nota: recordar el uso de la función Mod y Trunc(). No podemos pasar el numero a cadena para
+//realizar el ejercicio.
+
+Algoritmo informacionParesOImpares
+	
+	Definir num1 Como Entero
+	
+	Escribir "Ingrese el número que desea evaluar:"
+	Leer num1
+	
+	Escribir "El número ingresado tiene los siguientes dígitos", " ", num1 ," donde : " 
+	Escribir " "
+	Escribir paresOImpares(num1)	
+	
+FinAlgoritmo
+
+Funcion retornoParesOImpares <- paresOImpares(num1)
+	Definir retornoParesOImpares Como Entero
+	Definir definicionParOImpar1 Como Entero
+	Definir digito Como Entero	
+	
+	Mientras num1>0
+		
+		digito = num1 MOD 10
+		num1 =TRUNC (num1/10)
+		definicionParOImpar1 <- digito MOD 2 
+		
+		
+		Si definicionParOImpar1 MOD 2 = 0 Entonces
+			Escribir digito ": Es par"
+		SiNo
+			Escribir digito ": Es impar"
+		FinSi		
+			
+	FinMientras	
+FinFuncion
+
+

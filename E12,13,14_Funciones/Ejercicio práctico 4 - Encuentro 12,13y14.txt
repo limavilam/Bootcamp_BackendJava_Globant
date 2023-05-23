@@ -1,0 +1,36 @@
+//Realizar un programa que pida al usuario una frase y una letra a buscar en esa frase. La
+//función debe devolver la cantidad de veces que encontró la letra. Nota: recordar el uso de la
+//función Subcadena().
+
+Algoritmo cantidadLetras
+	Definir frase Como Caracter
+	Definir letra Como Caracter
+	
+	
+	Escribir "Ingrese la frase que desea evaluar:"
+	Leer frase
+	
+	Escribir "Ingrese la letra que desea buscar:"
+	Leer letra	
+	
+	Escribir "En la frase: ", frase , " encontramos ", letras(frase, letra) , " veces la letra", " ",  letra
+	
+FinAlgoritmo
+
+Funcion retornoLetras = letras(frase,letra)
+	Definir retornoLetras Como Entero
+	Definir largoFrase Como Entero
+	Definir i Como Entero
+	//Si coloco un contador aparte al estilo contadorLetras <- 0 y lo defino, no me va a imprimir nada, porque no me está contando en la función, es decir, no es la variable            //que me retorna la función.
+	
+	largoFrase <- Longitud(frase)
+	retornoLetras <- 0
+	
+	Para i <-0 Hasta largoFrase Con Paso 1 Hacer
+		Si (Subcadena(frase,i,i)=letra) 
+			retornoLetras <- retornoLetras + 1			
+		FinSi
+	Fin Para
+FinFuncion
+
+

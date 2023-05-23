@@ -1,0 +1,30 @@
+//Diseñar una función que reciba un numero en forma de cadena y lo devuelva como numero
+//entero. El programa podrá recibir números de hasta 3 dígitos. Nota: no poner números con
+//decimales ni letras. Ejemplo: ingresando "100"(carácter) debe convertirse en 100(entero).
+
+Algoritmo conversion
+	
+	Definir num1 Como Caracter	
+	
+	Escribir "Ingrese un número de 3 dígitos:"
+	Leer num1	
+	
+	Escribir conversionTipoDato(num1)
+	
+FinAlgoritmo
+
+Funcion retorno <- conversionTipoDato (num1)
+	Definir retorno Como Entero
+	Definir longitudNum1 Como Entero
+	Definir cadenaNum1 Como Entero
+	
+	longitudNum1 <- Longitud(num1)
+	
+	Si longitudNum1 <= 3 Entonces
+		cadenaNum1 = ConvertirANumero(num1) 
+		retorno = cadenaNum1
+	SiNo 
+		Escribir "Ingrese un número menor o igual de 3 dígitos"
+	FinSi	
+	
+Fin Funcion

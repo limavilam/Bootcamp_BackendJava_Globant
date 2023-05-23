@@ -1,0 +1,24 @@
+//Realizar una función que valide si un número es impar o no. Si es impar la función debe
+//devolver un verdadero, si no es impar debe devolver falso. Nota: la función no debe tener
+//mensajes que digan si es par o no, eso debe pasar en el Algoritmo.
+
+Algoritmo numeroParOImpar
+	Definir numero1 Como Real
+	Definir resultado Como Logico
+		
+	Escribir "Ingrese el número que desea validar:"
+	Leer numero1
+	
+	resultado = paroimpar(numero1)
+	
+	Si resultado = paroimpar(numero1) Entonces
+		Escribir "El número ingresado es par:", paroimpar(numero1)
+	FinSi	
+	
+FinAlgoritmo
+
+Funcion retornoParOImpar = paroimpar(numero1)
+	Definir retornoParOImpar Como Logico
+	retornoParOImpar = numero1 MOD 2 = 0
+FinFuncion
+

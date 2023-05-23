@@ -1,0 +1,22 @@
+//Realizar una función que calcule la suma de dos números. En el algoritmo principal le
+//pediremos al usuario los dos números para pasárselos a la función. Después la función
+//calculará la suma y lo devolverá para imprimirlo en el algoritmo
+
+Algoritmo sumaNumero
+	Definir numero1 Como Real
+	Definir numero2 Como Real
+	
+	Escribir "Ingrese el número 1:"
+	Leer numero1
+	
+	Escribir "Ingrese el número 2:"
+	Leer numero2
+	
+	Escribir "La suma de los números ingresados es:",  sumar(numero1, numero2)
+	
+FinAlgoritmo
+
+Funcion retorno <- sumar(numero1, numero2)
+	Definir retorno Como Real
+	retorno = numero1 + numero2
+FinFuncion

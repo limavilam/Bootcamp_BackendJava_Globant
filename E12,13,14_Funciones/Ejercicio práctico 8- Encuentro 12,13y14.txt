@@ -1,0 +1,53 @@
+//Crear una función llamada "Login", que recibe un nombre de usuario y una contraseña y que
+//devuelve Verdadero si el nombre de usuario es "usuario1" y si la contraseña es "asdasd".
+//Además, la función calculara el número de intentos que se ha usado para loguearse, tenemos
+//solo 3 intentos, si nos quedamos sin intentos la función devolverá Falso.
+
+Algoritmo ingreso
+	
+	Definir validezCredenciales Como Logico
+	Definir numeroIntentos Como Entero
+	Definir usuario Como Caracter
+	Definir contrasenna Como Caracter
+	
+	validezCredenciales <- Falso
+	numeroIntentos <- 3
+	
+	Repetir 
+		Escribir "Ingrese el nombre del usuario:"
+		Leer usuario
+		
+		Escribir "Ingrese la contraseña:"
+		Leer contrasenna
+		
+		validezCredenciales = login(usuario,contrasenna, numeroIntentos)
+		
+	Mientras Que no validezCredenciales y numeroIntentos > 0
+	
+	Si validezCredenciales Entonces
+		Escribir "Ingreso Satisfactorio"
+	SiNo
+		Escribir "A superado el numero maximo de intentos"
+	FinSi
+	
+FinAlgoritmo
+
+Funcion inicioDeSesionValido <- login(usuario,contrasenna, numeroIntentos Por Referencia)	
+	
+	Definir inicioDeSesionValido Como Logico
+	Definir usuarioValido Como Caracter
+	Definir contrasennaValida Como Caracter
+	
+	inicioDeSesionValido = Falso
+	usuarioValido <- "usuario1"
+	contrasennaValida <- "asdasd"	
+	
+	Si usuario == usuarioValido y contrasenna == contrasennaValida Entonces
+		inicioDeSesionValido = Verdadero
+		numeroIntentos = 0
+	SiNo
+		numeroIntentos = numeroIntentos - 1
+	FinSi
+	
+FinFuncion
+
