@@ -1,0 +1,337 @@
+Algoritmo calculadoraDeMateriales
+	
+	menuDeOpcionesCalculadora()
+	
+FinAlgoritmo
+
+//subproceso de menu
+SubProceso menuDeOpcionesCalculadora
+	
+	Definir respuestaOpciones Como Entero	
+
+	Repetir 	
+		
+		Escribir "¡Bienvenido a la calculadora de materiales para construir!"
+		Escribir "¿Qué acción desea realizar?"
+		Escribir "1. Calcular muro de ladrillo"
+		Escribir "2. Calcular viga de hormigón"
+		Escribir "3. Calcular columnas de hormigón"
+		Escribir "4. Calcular contrapisos"
+		Escribir "5. Calcular techo"
+		Escribir "6. Calcular pisos"
+		Escribir "7. Calcular pintura"
+		Escribir "8. Calcular iluminación"
+		Escribir "9. Salir"		
+		Leer respuestaOpciones	
+		
+		Segun respuestaOpciones Hacer
+			1:
+				calcularMuro()
+			2:
+				calcularViga()
+			3: 
+				calcularColumna()
+			4: 
+				calcularContrapisos()
+			5: 
+				calcularTecho()
+			6: 
+				calcularPisos()
+			7: 
+				calcularPintura()
+			8: 
+				calcularIluminacion()
+		FinSegun	
+    Mientras Que respuestaOpciones <> 9
+FinSubProceso
+
+SubAlgoritmo superficie = calcularSuperficie(alto, ancho)
+	Definir superficie Como Real
+	superficie = alto * ancho
+FinSubAlgoritmo
+
+SubAlgoritmo volumen = calcularVolumen(alto, ancho, espesor)
+	Definir volumen Como Real
+	volumen = calcularSuperficie(alto, ancho) * espesor
+FinSubAlgoritmo
+
+//Subprograma calcular muro
+SubProceso calcularMuro()
+	Definir espesor Como Entero
+	Definir largo Como Real
+	Definir ancho Como Real
+	Definir alto como Real 
+	Definir volumen Como Real
+	Definir cemento Como Real
+	Definir arena Como Real
+	Definir ladrillos Como Real
+	Leer volumen
+	
+	Escribir "Ingrese el espesor del muro:"
+	Leer espesor
+	Escribir "Ingrese el largo del muro en metros"
+	Leer largo
+	Escribir "Ingrese la altura del muro en metros"
+	Leer alto
+	
+	cemento = calcularSuperficie(alto, largo)
+	arena = volumen
+	ladrillos = calcularSuperficie(alto, largo)
+	
+	Segun espesor
+		20:
+			cemento =  cemento * 10.9
+			arena = arena * 0.09
+			ladrillos = ladrillos * 90
+		30: 
+			cemento =  cemento * 15.2
+			arena = arena * 0.115
+			ladrillos = ladrillos * 120
+		otro caso:
+			Escribir "Espesor no valido"
+			cemento =  cemento * 0
+			arena = arena * 0
+			ladrillos = ladrillos * 0
+	FinSegun
+	Escribir "La superficie del muro es: ", calcularSuperficie(alto, largo), "metros, los materiales que se requieren para construir son:" 
+	Escribir "Cemento: ", cemento, " Kg"
+	Escribir "Arena: ", arena, " m3"
+	Escribir "ladrillos: ", ladrillos
+	Escribir " "
+FinSubProceso
+
+//Subprograma calcular viga
+SubProceso calcularViga()
+	Definir largo Como Real
+	Definir alto Como Real
+	Leer alto
+	Definir volumen Como Real
+	Leer volumen
+	Definir arena como Real 
+	Definir cemento Como Real
+	Definir piedra Como Real
+	Definir hierroOcho Como Real
+	Definir hierroCuatro Como Real
+	
+	Escribir "Ingrese el largo de la viga:"
+	Leer largo
+		
+	cemento = calcularSuperficie(alto, largo)
+	arena = volumen
+	piedra = calcularSuperficie(alto, largo)
+	hierroCuatro = largo
+	hierroOcho = largo
+	
+	cemento = 9 * cemento
+	arena = 0.02 * arena
+	piedra = 0.02 * piedra
+	hierroCuatro = 3 * hierroCuatro
+	hierroOcho = 4 * hierroOcho
+	
+	Escribir "El largo de la viga es: ", largo, " los materiales que se requieren para construir son:" 
+	Escribir "Cemento: ", cemento, " Kg"
+	Escribir "Arena: ", arena, " m3"
+	Escribir "Piedra: ", piedra, " m2"
+	Escribir "hierro 4:", hierroCuatro
+	Escribir "hierro 8: ", hierroOcho
+	Escribir " "
+FinSubProceso
+
+//Subprograma calcular columna
+SubProceso calcularColumna()
+	Definir largo Como Real
+	Definir alto Como Real
+	Leer alto
+	Definir volumen Como Real
+	Leer volumen
+	Definir arena como Real 
+	Definir cemento Como Real
+	Definir piedra Como Real
+	Definir hierroDiez Como Real
+	Definir hierroCuatro Como Real
+	
+	Escribir "Ingrese el largo de la columna:"
+	Leer largo
+	
+	cemento = calcularSuperficie(alto, largo)
+	arena = volumen
+	piedra = calcularSuperficie(alto, largo)
+	hierroDiez = largo
+	hierroCuatro = largo
+	
+	cemento = 7.5 * cemento
+	arena = 0.016 * arena
+	piedra = 0.016 * piedra
+	hierroDiez = 6 * hierroDiez
+	hierroCuatro = 3 * hierroCuatro
+	
+	Escribir "El largo de la columna es: ", largo, " los materiales que se requieren para construir son:" 
+	Escribir "Cemento: ", cemento, " Kg"
+	Escribir "Arena: ", arena, " m3"
+	Escribir "Piedra: ", piedra, " m2"
+	Escribir "hierro 10:", hierroDiez
+	Escribir "hierro 4: ", hierroCuatro
+	Escribir " "
+FinSubProceso
+
+//Subprograma calcular contrapisos
+SubProceso calcularContrapisos()
+	Definir largo Como Real
+	Definir ancho Como Real 
+	Definir espesor Como Real
+	Definir alto Como Real
+	Leer alto
+	Definir volumen Como Real
+	Leer volumen
+	Definir arena como Real 
+	Definir cemento Como Real
+	Definir piedra Como Real
+	Definir dimensionesPiso Como Real
+		
+	Escribir "Ingrese el espesor del contrapiso:"
+	Leer espesor
+	
+	Escribir "Ingrese el ancho del contrapiso:"
+	Leer ancho
+	
+	Escribir "Ingrese el largo del contrapiso:"
+	Leer largo
+	
+	cemento = calcularSuperficie(alto, largo)
+	arena = volumen
+	piedra = calcularSuperficie(alto, largo)
+	dimensionesPiso = espesor * ancho * largo
+	
+	cemento = 105 * cemento
+	arena = 0.45 * arena
+	piedra = 0.9 * piedra
+		
+	Escribir "La dimensiones del piso son: ", dimensionesPiso, " los materiales que se requieren para construir son:" 
+	Escribir "Cemento: ", cemento, " Kg"
+	Escribir "Arena: ", arena, " m3"
+	Escribir "Piedra: ", piedra, " m2"
+	Escribir " "
+FinSubProceso
+
+//Subprograma calcular techo
+SubProceso calcularTecho()
+	Definir largo Como Real
+	Definir ancho Como Real 
+	Definir espesor Como Real
+	Definir alto Como Real
+	Leer alto
+	Definir volumen Como Real
+	Leer volumen
+	Definir arena como Real 
+	Definir cemento Como Real
+	Definir piedra Como Real
+	Definir dimensionesTecho Como Real
+	Definir hierroOcho Como Real
+	Definir hierroSeis Como Real
+	
+	Escribir "Ingrese el espesor del techo:"
+	Leer espesor
+	
+	Escribir "Ingrese el ancho del techo:"
+	Leer ancho
+	
+	Escribir "Ingrese el largo del techo:"
+	Leer largo
+	
+	cemento = calcularSuperficie(alto, largo)
+	arena = volumen
+	piedra = calcularSuperficie(alto, largo)
+	hierroOcho = largo
+	hierroSeis = largo
+	dimensionesTecho = espesor * ancho * largo
+	
+	cemento = 33 * cemento
+	arena = 0.072 * arena
+	piedra = 0.072 * piedra
+	hierroOcho = 7 * hierroOcho
+	hierroSeis = 4 * hierroSeis
+	
+	Escribir "La dimensiones del techo son: ", dimensionesTecho, " los materiales que se requieren para construir son:" 
+	Escribir "Cemento: ", cemento, " Kg"
+	Escribir "Arena: ", arena, " m3"
+	Escribir "Piedra: ", piedra, " m2"
+	Escribir "Hierro 8:" , hierroOcho, " m"
+	Escribir "Hierro 6:", hierroSeis, " m"
+	Escribir " "
+FinSubProceso
+
+//Subprograma calcular pisos
+SubProceso calcularPisos()
+	Definir largo Como Real
+	Definir ancho Como Real 
+	Definir alto Como Real
+	Leer alto
+	Definir volumen Como Real
+	Leer volumen
+	Definir dimensionesPiso Como Real
+	Definir dimensionesPisoExtra Como Real
+	Definir dimensionFinalPiso Como Real
+	
+	Escribir "Ingrese el ancho del piso:"
+	Leer ancho
+	
+	Escribir "Ingrese el largo del piso:"
+	Leer largo
+	
+	dimensionesPiso = (largo * ancho) 
+	dimensionesPisoExtra = dimensionesPiso * 0.10
+	dimensionFinalPiso = dimensionesPiso + dimensionesPisoExtra
+	
+	Escribir "La dimensiones del piso son: ", dimensionFinalPiso, " m2." 
+	Escribir " "
+FinSubProceso
+
+//Subprograma calcular pintura
+SubProceso calcularPintura()
+	Definir largo Como Real
+	Definir ancho Como Real 
+	Definir alto Como Real
+	Leer alto
+	Definir volumen Como Real
+	Leer volumen
+	Definir pintura Como Real
+		
+	Escribir "Ingrese el ancho del muro:"
+	Leer ancho
+	
+	Escribir "Ingrese el alto del muro:"
+	Leer alto
+	
+	pintura = calcularSuperficie(alto, ancho)
+	
+	pintura = 6 * pintura
+	
+	Escribir "La dimensiones del muro son: ", calcularSuperficie(alto, ancho), " los materiales que se requieren para construir son:" 
+	Escribir "Pintura: ", pintura, " m2"
+	Escribir " "
+FinSubProceso
+
+//Subprograma calcular iluminación
+SubProceso calcularIluminacion()
+	Definir largo Como Real
+	Definir ancho Como Real 
+	Definir alto Como Real
+	Leer alto
+	Definir volumen Como Real
+	Leer volumen
+	Definir iluminacion Como Real
+	
+	Escribir "Ingrese el ancho de la habitación: "
+	Leer ancho
+	
+	Escribir "Ingrese el alto de la habitación:"
+	Leer alto
+	
+	iluminacion = calcularSuperficie(alto, ancho)
+	
+	iluminacion = 0.20 * iluminacion
+	
+	Escribir "La superficie de la habitación es: ", calcularSuperficie(alto, ancho), " los materiales que se requieren para construir son:" 
+	Escribir "Iluminación: ", iluminacion, " m2"
+	Escribir " "
+FinSubProceso
