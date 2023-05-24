@@ -1,0 +1,42 @@
+//Realizar un programa que rellene un vector de tamaño N, con valores ingresados por el
+//usuario. A continuación, se deberá crear una función que reciba el vector y devuelva el valor
+//más grande del vector.
+
+Algoritmo arrays
+	
+	Definir vector, i, N, numMayor, numMenor Como Entero
+	
+	Escribir "Ingrese el número de datos:"
+	Leer N
+	Dimension vector[N]
+	
+	Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+		Escribir "Ingrese el elemento ", i " del arreglo:"
+		Leer vector[i]
+	FinPara
+	
+	//Inicialización de variables
+	numMayor <- 0
+	numMenor <- 0
+	
+	Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+		//El número mayor y menor será 1 en la primera iteración.
+		Si i = 0 Entonces
+			//almacenamiento del primer elemento del arreglo
+			numMayor <- vector[i]
+			numMenor <- vector[i]
+		SiNo
+			//Si el número del arreglo es mayor que numMayor se actualiza numMayor
+			Si vector[i] > numMayor Entonces
+				numMayor = vector[i]
+			SiNo
+				Si vector[i] < numMenor Entonces
+					numMenor = vector[i]					
+				FinSi				
+			FinSi
+		FinSi
+	FinPara
+	Escribir "El número mayor es: ", numMayor
+	Escribir "El número menor es:", numMenor
+	
+FinAlgoritmo

@@ -1,0 +1,83 @@
+//Crear un subproceso que rellene dos arreglos de tamaño n, con números aleatorios. Después,
+//hacer una función que reciba los dos arreglos y diga si todos sus valores son iguales o no. La
+//función debe devolver el resultado de está validación, para mostrar el mensaje en el
+//algoritmo. Nota: recordar el uso de las variables de tipo lógico.
+
+Algoritmo ArreglosIguales
+	Definir n, arregloA, arregloB Como Entero
+	Escribir "Ingrese la longitud de los arreglos"
+	Leer n
+	
+	//n = 2
+	Dimension arregloA[n]
+	Dimension arregloB[n]
+	
+//	arregloA[0] = 1
+//	arregloA[1] = 2
+	//arregloA[2] = 3
+	//arregloA[3] = 4	
+	
+//	arregloB[0] = 1
+//	arregloB[1] = 2
+	//arregloB[2] = 3
+	//arregloB[3] = 4
+	crearArreglo(n, arregloA)
+	crearArreglo(n, arregloB)
+	
+	escribirArreglo(arregloA, n)
+	escribirArreglo(arregloB, n)
+	
+	Escribir "Los arreglos tiene el mismo contenido?: ",  losArreglosTienenElMismoContenido(arregloA, arregloB, n)
+	
+FinAlgoritmo
+
+SubProceso crearArreglo(n, arreglo Por Referencia)
+	Definir i Como Entero
+	para i = 0 Hasta n-1 Hacer
+		arreglo[i] = Aleatorio(0,2) 
+	FinPara
+FinSubProceso
+
+SubProceso escribirArreglo(arreglo, n)
+	Definir  i Como Entero
+	Escribir ""
+	Escribir Sin Saltar "Arreglo("
+	para i = 0 hasta n-1 Con Paso 1 Hacer
+		Si i == n -1
+			Escribir Sin Saltar arreglo[i] , "" 
+		SiNo
+			Escribir Sin Saltar arreglo[i] , ", " 
+		FinSi
+		
+	FinPara
+	Escribir Sin Saltar ")"
+	Escribir ""
+FinSubProceso
+
+Funcion respuesta = losArreglosTienenElMismoContenido(arregloA, arregloB, n)
+	Definir respuesta como Logico
+	Definir i, j Como Entero
+	
+	para i = 0 Hasta n-1 Hacer
+		//Escribir "iteracion i ", i
+		// Cada nueva iteracion se debe reinicar la respuesta a Falso para asegurar que si no encuentra un numero de arreglo A en el Arreglo B respuesta sea Falso
+		respuesta = Falso
+		para j = 0 Hasta n-1 Con Paso 1 Hacer
+			//Escribir "iteracion j ", j
+			Si arregloA[i] == arregloB[j] 
+				// Se remplaza el valor por -1 dado que los arreglos tienen solo numeros positvos de esta forma simulamos una eliminacion del valor econtrado para que 
+				// un caso como A(1, 2, 3, 1) B(1, 2, 3, 4) no resulte Verdadero, en ese caso A esta contenido en B pero no son iguales.
+				arregloB[j] = -1 
+				// A respuesta solo se asgina Verdadero si la posicion i del arreglo A fue encontrada en el arreglo B
+				respuesta = Verdadero
+				j = n-1 // No busca mas porque ya lo encontro
+			FinSi
+		FinPara
+		
+		// Si luego de buscar un numero del arreglo A en el arreglo B y no encontarlo podemos asumir que los arreglos no contienen los mismos datos y finalizar el ciclo
+		// para ello igualamos i a n-1 que es la condici?n de parada del ciclo "Hasta n-1 Hacer"
+		Si respuesta = Falso
+			i = n-1
+		FinSi
+	FinPara
+FinFuncion

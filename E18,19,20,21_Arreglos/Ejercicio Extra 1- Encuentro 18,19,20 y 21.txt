@@ -1,0 +1,43 @@
+//Realizar un programa que rellene dos vectores al mismo tiempo, con 5 valores aleatorios y los
+//muestre por pantalla.
+
+Algoritmo vectoresIngresados
+	
+	Definir vectorA, vectorB, datosA, datosB, i Como Entero
+	datosA = 5
+	datosB = 5
+	Dimension vectorA[5], vectorB[5]
+	
+	Para i <- 0 Hasta 4 Con Paso 1 Hacer
+		vectorA[i] =Aleatorio(1,100)
+		vectorB[i] = Aleatorio(1,100)
+	FinPara	
+	
+	Escribir "Valores del vector A:"	
+	Para i <- 0 Hasta 4 Con Paso 1 Hacer
+		Escribir "[ " ,vectorA[i]	Sin Saltar	, "]"
+		Escribir " "
+	FinPara
+		
+	Escribir "Valores del vector B:"	
+	Para i <- 0 Hasta 4 Con Paso 1 Hacer
+		Escribir "[ ", vectorB[i]	, "]"
+	FinPara	
+	
+	//Otra manera de hacerlo usando un SubProceso
+	imprimirVector(vectorA, vectorB)
+	
+FinAlgoritmo
+
+//Otra manera de hacerlo usando un SubProceso
+SubProceso imprimirVector(vectorA, vectorB)
+	Definir i Como Entero
+	
+	Escribir "Valores del vector A y B:"	
+	Para i = 0 Hasta 4 Con Paso 1 Hacer
+		Escribir "Los valores vector A: [", vectorA[i] "]" "     " Sin Saltar
+		Escribir "Los valores vector B: [", vectorB[i] "]"
+	FinPara
+FinSubProceso
+
+

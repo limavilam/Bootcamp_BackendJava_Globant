@@ -1,0 +1,18 @@
+//MAO : Define un vector que alojará números enteros y otro de cadena. Dimensiona ambos de la longitud
+//que tu desees. Ahora en lapiz y papel, escribe la dimensión de tus vectores y sus subíndices.
+
+Algoritmo vectores
+	
+	Definir vectorEnteros, var Como Entero
+	Dimension vectorEnteros[5]
+	vectorEnteros[0]=4
+	vectorEnteros[1]=8
+	vectorEnteros[2]=9
+	vectorEnteros[3]=7
+	vectorEnteros[4]=6
+	Escribir vectorEnteros[2]
+	var = vectorEnteros[3]
+	Leer var
+	
+	
+FinAlgoritmo

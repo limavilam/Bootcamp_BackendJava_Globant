@@ -1,0 +1,32 @@
+//Realizar un programa que rellene un vector de tamaño N, con valores ingresados por el
+//usuario y muestre por pantalla el promedio de la suma de todos los valores ingresados.
+Algoritmo promedioEnArreglos
+	
+	Definir suma, promedio, vector Como Real
+	Definir N Como Entero
+	Definir i Como Entero
+	
+	Escribir "Ingrese el número de datos que desea promediar: "
+	Leer N
+	
+	Dimension vector[N]
+	
+	//Bucle para el ingreso y almacenaje de los N datos
+	Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+		Escribir "Ingrese el valor " , i , " :"
+		Leer vector[i]
+	FinPara
+	
+	suma <- 0
+		
+	Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+		suma = suma + vector[i]		
+	FinPara
+	
+	promedio = suma/N
+	
+	Escribir "La suma de los " , N , " ingresados es:", suma
+	Escribir "El promedio de los " , N , " ingresados es:", promedio
+
+FinAlgoritmo
+

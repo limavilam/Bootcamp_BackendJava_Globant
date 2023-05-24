@@ -1,0 +1,38 @@
+//Programe una función que calcule el producto de un arreglo de números enteros. Para esto
+//imagine, por ejemplo, que para un vector V de tamaño 4, el producto de todos los valores es
+//igual a (V[1]*V[2]*V[3]*V[4])
+
+Algoritmo promedioEnArreglos
+	
+	Definir producto, vector Como Real
+	Definir N Como Entero
+	Definir i Como Entero
+	
+	Escribir "Ingrese el tamaño del arreglo: "
+	Leer N
+	
+	Dimension vector[N]
+		
+	Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+		Escribir "Ingrese el valor ", i+1, ":"
+		Leer vector[i]
+	FinPara
+	
+	producto <- productoArreglo (vector, N)
+	Escribir "El producto de los valores del arreglo es: ", producto
+	
+FinAlgoritmo
+
+
+Funcion producto <- productoArreglo (vector, N)
+	Definir producto Como Entero
+	Definir i Como Entero
+	Producto <- 1
+	//Bucle para el ingreso y almacenaje de los N datos
+	Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+		producto <- producto * vector[i]
+	FinPara	
+		
+FinFuncion
+
+

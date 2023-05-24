@@ -1,0 +1,51 @@
+//Crear una función que devuelva la diferencia que hay entre el valor más chico de un arreglo y
+//su valor más grande.
+
+Algoritmo arrays
+	
+	Definir vector, i, N, numMayor, numMenor Como Entero
+	Definir diferenciaDeValores Como Real
+	
+	Escribir "Ingrese el número de datos:"
+	Leer N
+	Dimension vector[N]
+	
+	Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+		Escribir "Ingrese el elemento ", i " del arreglo:"
+		Leer vector[i]
+	FinPara
+	
+	//Inicialización de variables
+	numMayor <- 0
+	numMenor <- 0
+	
+	Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+		//El número mayor y menor será 1 en la primera iteración.
+		Si i = 0 Entonces
+			//almacenamiento del primer elemento del arreglo
+			numMayor <- vector[i]
+			numMenor <- vector[i]
+		SiNo
+			//Si el número del arreglo es mayor que numMayor se actualiza numMayor
+			Si vector[i] > numMayor Entonces
+				numMayor = vector[i]
+			SiNo
+				Si vector[i] < numMenor Entonces
+					numMenor = vector[i]					
+				FinSi				
+			FinSi
+		FinSi
+	FinPara
+	Escribir "El número mayor es: ", numMayor
+	Escribir "El número menor es:", numMenor
+	
+	diferenciaDeValores <- diferencia(numMayor,numMenor)
+	Escribir "La diferencia del número mayor y número menor del arreglo es: ", diferenciaDeValores
+	
+	
+FinAlgoritmo
+
+Funcion diferenciaDeValores <- diferencia(numMayor,numMenor)
+	Definir diferenciaDeValores Como Real 
+	diferenciaDeValores = numMayor-numMenor
+FinFuncion

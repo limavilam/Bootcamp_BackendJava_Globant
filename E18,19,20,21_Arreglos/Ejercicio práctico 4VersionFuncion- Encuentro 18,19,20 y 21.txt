@@ -1,0 +1,125 @@
+//Realizar un programa con el siguiente menú y le pregunte al usuario que quiere hacer hasta
+//que ingrese la opción Salir:
+//	A. Llenar Vector A. Este vector es de tamaño N y se debe llenar de manera aleatoria
+//	usando la función Aleatorio(valorMin, valorMax) de PseInt.
+//	B. Llenar Vector B. Este vector también es de tamaño N y se llena de manera aleatoria.
+//	C. Llenar Vector C con la suma de los vectores A y B. La suma se debe realizar elemento a elemento. Ejemplo: C = A + B
+//	D. Llenar Vector C con la resta de los vectores B y A. La resta se debe realizar elemento a elemento. Ejemplo: C = B - A
+//  E. Mostrar. Esta opción debe permitir al usuario decidir qué vector quiere mostrar: Vector A, B, o C.
+//	F. Salir.
+//NOTA: El rango de los números aleatorios para los Vectores será de [-100 a 100]. La longitud
+//para todos los vectores debe ser la misma, por lo tanto, esa información sólo se solicitará una vez.
+
+Algoritmo menuVectores
+	
+	Definir N Como Entero
+	Definir respuestasOpcion, opcionVector Como Caracter
+	Definir i Como Entero
+	Definir vectorA, vectorB, vectorC Como Real
+	Definir vectorAEstaDefinido Como Logico
+	Definir vectorBEstaDefinido Como Logico
+	Definir vectorCEstaDefinido Como Logico
+	
+	vectorAEstaDefinido <- Falso
+	vectorBEstaDefinido <- Falso 
+	vectorCEstaDefinido <- Falso 
+	
+	// Solicitar longitud de los vectores
+	Escribir "Ingrese la longitud de los vectores: "
+	Leer N
+	Dimension vectorA[N], vectorB[N], vectorC[N]
+	Repetir
+		
+		Escribir "¡Bienvenido al menú de vectores, por favor seleccione que operación desea realizar:"
+		Escribir "A. Llenar Vector A"
+		Escribir "B. Llenar Vector B"
+		Escribir "C. Llenar Vector C con la suma de los vectores A y B"
+		Escribir "D. Llenar Vector C con la resta de los vectores B y A"
+		Escribir "E. Mostrar vectores"
+		Escribir "F. Salir"
+		Escribir ""
+		Escribir "Ingrese una opción (A, B, C, D, E o F): "
+		Leer respuestasOpcion
+		
+		Segun respuestasOpcion Hacer
+				// Opción A: Llenar vector A
+			"A":
+				// Llenar vector A con números aleatorios
+				Escribir "Llenando vector A con números aleatorios entre -100 y 100..."
+				Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+					vectorA[i] <- Aleatorio(-100, 100)
+				FinPara
+				Escribir "Vector A ha sido llenado exitosamente."
+				vectorAEstaDefinido <- Verdadero
+				// Opción B: Llenar vector B
+			"B":
+				// Llenar vector A con números aleatorios
+				Escribir "Llenando vector B con números aleatorios entre -100 y 100..."
+				Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+					vectorB[i] <- Aleatorio(-100, 100)
+				FinPara
+				Escribir "Vector B ha sido llenado exitosamente."
+				vectorBEstaDefinido <- Verdadero
+			"C":
+				// Llenar vector C con la suma de los vectores A y B
+			    Si vectorAEstaDefinido Y vectorBEstaDefinido Entonces
+					Escribir "Llenando vector C con la suma de A y B..."
+					Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+						vectorC[i] <- vectorA[i] + vectorB[i]
+					FinPara
+					vectorCEstaDefinido <- Verdadero
+					Escribir "Vector C llenado exitosamente."
+				SiNo 
+					Escribir "El vector A o B no se ha inicializado"
+				FinSi					
+			"D":
+				// Llenar vector D con la resta de los vectores B y A
+				Si vectorAEstaDefinido Y vectorBEstaDefinido Entonces
+					Escribir "Llenando vector C con la resta de los vectores B y A..."
+					Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+						vectorC[i] <- vectorB[i] - vectorA[i] 
+					FinPara
+					vectorCEstaDefinido <- Verdadero
+					Escribir "Vector C llenado exitosamente."
+				SiNo 
+					Escribir "EL vector A o B no se ha inicializado"
+				FinSi
+			"E":
+				Escribir "¿Qué vector desea mostrar? Ingrese la letra correspondiente:"
+				Escribir "A. Vector A"
+				Escribir "B. Vector B"
+				Escribir "C. Vector C"
+				Leer opcionVector
+								
+				Segun opcionVector Hacer
+					"A", "a":
+						imprimirVector(vectorA, vectorAEstaDefinido, "A", N)						
+						
+					"B", "b":
+						imprimirVector(vectorB, vectorBEstaDefinido, "B", N)
+						
+					"C", "c":
+						imprimirVector(vectorC, vectorCEstaDefinido, "C", N)
+						
+					De Otro Modo:
+						Escribir "Opción no válida."
+				FinSegun
+			"F":
+				Escribir "Gracias por tu interés"
+		FinSegun		
+	Mientras Que respuestasOpcion <> "F"
+FinAlgoritmo
+
+SubProceso imprimirVector(vector, vectorEstaDefinido, nombreVector, N)
+	Definir i Como Entero
+	Si vectorEstaDefinido Entonces
+		Escribir "Vector: ", nombreVector		
+		Para i = 0 Hasta N-1 Con Paso 1 Hacer
+			Escribir vector[i]
+		FinPara
+	SiNo
+		Escribir "El vector está vacío"
+	FinSi	
+FinSubProceso
+
+	

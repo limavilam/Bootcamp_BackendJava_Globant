@@ -1,0 +1,132 @@
+//Tomando en cuenta el ejercicio 6, mejore el mecanismo de inserción del carácter, facilitando
+//un potencial reordenamiento del vector. Digamos que se pide ingresar el carácter en la
+//posición X y la misma está ocupada, entonces de existir un espacio en cualquier posición X-n
+//o X+n, desplazar los caracteres hacia la izq o hacia la derecha para poder ingresar el carácter
+//en cuestión en el lugar deseado. El procedimiento de reordenamiento debe ubicar el espacio
+//más cercano.
+
+Algoritmo fraseEspacios5
+	
+	//variables del primer punto
+	Definir vector, frase Como Caracter
+	
+	//Variables del segundo punto
+	
+	Definir posicion Como Real
+	Definir letra Como Caracter
+	
+	Dimension vector[20]
+	
+	Escribir "Ingrese una frase:"
+	Leer frase
+	Escribir "Ingrese un caracter:" 
+	Leer letra
+	Escribir "Ingrese una posicion(0-19) para agregarlo en el vector:" 
+	Leer posicion
+	
+	rellenarVector(vector,frase)	
+	agregarCaracter(vector,posicion,letra)
+	mostrarVector(vector)
+FinAlgoritmo
+
+
+
+//Rellenar vector
+
+SubProceso rellenarVector(vector,frase)
+	Definir i Como Entero
+	Para i=0 Hasta 19 Hacer
+		vector[i]=Subcadena(frase,i,i)
+	FinPara
+FinSubProceso
+
+
+//Agregar caracter nuevo
+SubProceso agregarCaracter(vector,posicion,letra)
+	Definir distanciaALaDerecha, distanciaALaIzq como Real
+	
+	Si (vector[posicion] = "" O vector[posicion] = " ") Entonces
+        vector[posicion] <- letra
+        Escribir "El caracter fue ingresado correctamente en la posicion ", posicion
+    Sino
+        Escribir "La posicion indicada esta ocupada, reordenando"
+		distanciaALaDerecha = buscarEspacioVacioALaDerecha(vector, posicion)
+		distanciaALaIzq = buscarEspacioVacioALaIzquierda(vector, posicion)
+		
+		Si distanciaALaDerecha < distanciaALaIzq Y distanciaALaDerecha >= 0
+			Escribir "Espacio disponible mas cercano a la derecha: ", distanciaALaDerecha
+			insertarYDesplazarAlaDerecha(vector, posicion, letra)
+		SiNo
+			Si distanciaALaIzq <= distanciaALaDerecha Y distanciaALaIzq >= 0
+				Escribir "Espacio disponible mas cercano a la izquierda: ", distanciaALaIzq
+				insertarYDesplazarAlaIzq(vector, posicion, letra)
+			SiNo
+				Escribir "No hay espacios vacios"
+			FinSi
+		FinSi
+		
+    FinSi
+FinSubProceso
+
+
+Funcion cantidad = buscarEspacioVacioALaDerecha(vector, posicion)
+	Definir i Como Entero
+	Definir cantidad Como Real
+	cantidad = -1
+	para i = posicion hasta 19 Con Paso 1
+		Si vector[i] == " " O vector[i] = ""
+			cantidad = i - posicion
+			i = 19
+		FinSi
+	FinPara
+FinFuncion
+
+Funcion cantidad = buscarEspacioVacioALaIzquierda(vector, posicion)
+	Definir i Como Entero
+	Definir cantidad Como Real
+	cantidad = -1
+	para i = posicion hasta 0 Con Paso -1
+		Si vector[i] == " " O vector[i] = ""
+			cantidad = posicion - i
+			i = 0
+		FinSi
+	FinPara
+FinFuncion
+
+//Mostrar el vector
+SubProceso mostrarVector (vector)
+	Definir i Como Entero
+	Escribir "El vector con la frase y el carácter ingresado es:"
+	
+    Para i<-0 Hasta 19 Con Paso 1 Hacer
+        Escribir "[ 	", vector[i], " ]" Sin Saltar		
+    FinPara
+	Escribir " " 	
+FinSubProceso
+
+SubProceso insertarYDesplazarAlaDerecha(vector, posicion, letra)
+	Definir anterior Como Caracter
+	Definir tmp Como Caracter
+	Definir i Como Entero
+	
+	anterior = letra
+	para i = posicion hasta 19 Hacer
+		tmp = vector[i]
+		vector[i] = anterior
+		anterior = tmp
+	FinPara
+FinSubProceso
+
+SubProceso insertarYDesplazarAlaIzq(vector, posicion, letra)
+	Definir anterior Como Caracter
+	Definir tmp Como Caracter
+	Definir i Como Entero
+	
+	anterior = letra 
+	para i = posicion hasta 0 Con Paso -1 Hacer
+		tmp = vector[i]
+		vector[i] = anterior
+		anterior = tmp
+	FinPara
+FinSubProceso
+
