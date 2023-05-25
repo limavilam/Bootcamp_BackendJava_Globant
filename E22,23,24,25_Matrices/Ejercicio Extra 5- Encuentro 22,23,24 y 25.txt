@@ -1,0 +1,52 @@
+//Rellenar en un subproceso una matriz cuadrada con números aleatorios salvo en la diagonal
+//principal, la cual debe rellenarse con ceros. Una vez llena la matriz debe generar otro
+//subproceso para imprimir la matriz.
+//3 + 5 = 8
+//4 + 3 = 7
+//1 + 4 = 5
+
+Algoritmo sin_titulo
+	
+	Definir N,M, matriz Como Entero
+	
+	Escribir "Ingrese el número de filas:"
+	leer N
+	M=3
+	
+	Dimension matriz[N,M]
+	
+	llenadoMatriz(matriz,N,M)
+	mostrarMatriz(matriz,N,M)
+	
+FinAlgoritmo
+
+// Subproceso de llenado de matriz
+SubProceso llenadoMatriz(matriz, N,M)
+	Definir i,j Como Entero
+	Para i<-0 Hasta N-1 Con Paso 1 Hacer
+		Para j<-0 Hasta M-2 Con Paso 1 Hacer
+			Escribir "Ingrese el valor de la fila", "[", i, "]"," columna ","[", j, "]" Sin Saltar
+			Leer matriz[i,j]
+		FinPara
+	FinPara
+FinSubProceso
+
+SubProceso mostrarMatriz(matriz,N,M)
+	Definir i,j como Entero
+	Para i<-0 Hasta N-1 Con Paso 1 Hacer
+		Para j<-0 Hasta M-1 Con Paso 1 Hacer
+			Si j = 0 Entonces
+				Escribir sin saltar matriz[i,j]," + "
+			SiNo
+				Si j = 1 Entonces
+					Escribir sin saltar matriz[i,j]," = "
+				SiNo
+					Escribir sin saltar matriz[i,j-2] + matriz[i,j-1]
+				Fin Si
+			Fin Si
+			
+			
+		Fin Para
+		Escribir ""
+	Fin Para
+FinSubProceso

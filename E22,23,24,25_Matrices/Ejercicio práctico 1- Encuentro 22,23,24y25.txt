@@ -1,0 +1,35 @@
+//Realizar un programa que rellene una matriz de 3x3 con 9 valores ingresados por el usuario y
+//los muestre por pantalla.
+
+Algoritmo rellenoDeMatriz3X3
+	Definir M,N,i,j Como Entero
+	M = 3
+	N = 3
+	
+	//Definir matriz
+	Definir original Como Real
+	
+	Dimension original(M,N)
+	
+	Para i<-0 Hasta M-1
+		Para j=0 Hasta N-1
+			Escribir "Ingrese el valor del elemento [", i, ",", j, "]" Sin Saltar
+			Leer original(i,j)
+		FinPara
+	FinPara
+	
+	imprimeMatriz(original,M,N)
+	
+	Imprimir "Tamaño matriz :" , (M*N)
+		
+FinAlgoritmo
+
+SubProceso imprimeMatriz(matriz, M,N)
+	Definir i,j Como Entero
+	Para i=0 Hasta M-1
+		Para j=0 Hasta N-1
+			Escribir "[" matriz(i,j) "]", " " Sin Saltar			
+		FinPara
+		Escribir " "
+	FinPara
+FinSubProceso

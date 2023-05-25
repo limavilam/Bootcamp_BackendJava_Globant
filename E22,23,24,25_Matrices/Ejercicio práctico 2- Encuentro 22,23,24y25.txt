@@ -1,0 +1,58 @@
+//Escribir un programa que realice la búsqueda lineal de un número entero ingresado por el
+//usuario en una matriz de 5x5, llena de números aleatorios y devuelva por pantalla las
+//coordenadas donde se encuentra el valor, es decir en que fila y columna se encuentra. En
+//caso de no encontrar el valor dentro de la matriz se debe mostrar un mensaje.
+
+Algoritmo rellenoDeMatriz3X3
+	Definir M,N,i,j Como Entero
+	M = 5
+	N = 5
+	
+	//Definir matriz
+	Definir original Como Entero
+	Definir elemento Como Entero
+	
+	Dimension original(M,N)
+	
+	//Asignación de elementos dentro de matriz
+	Para i<-0 Hasta M-1
+		Para j=0 Hasta N-1
+			original[i,j] = Aleatorio(0,100)
+		FinPara
+	FinPara
+	
+	imprimeMatriz(original,M,N)
+	
+	Imprimir "Tamaño matriz :" , (M*N)
+	
+	Escribir "Ingrese el número a buscar:"
+	Leer elemento
+	
+	Definir encontrado Como Logico
+	encontrado <- Falso
+	
+	Para i <- 0 Hasta M-1 Hacer
+		Para j <- 0 Hasta N-1 Hacer
+			Si original[i, j] = elemento Entonces
+				// La posición del número está en i y j
+				Escribir "El elemento ", elemento, " se encuentra en la posición de fila:", "[",i,"]" , " y columna:","[",j,"]" , " de la matriz."
+				encontrado <- Verdadero
+			FinSi
+		FinPara
+	FinPara	
+	// Verificar si el elemento no se encontró en la matriz
+	Si encontrado = Falso Entonces
+		Escribir "El elemento ", elemento , "no está dentro de la matriz."
+	FinSi
+	
+FinAlgoritmo
+
+SubProceso imprimeMatriz(matriz, M,N)
+	Definir i,j Como Entero
+	Para i=0 Hasta M-1
+		Para j=0 Hasta N-1
+			Escribir "[" matriz(i,j) "]", " " Sin Saltar			
+		FinPara
+		Escribir " "
+	FinPara
+FinSubProceso

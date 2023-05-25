@@ -1,0 +1,58 @@
+//Rellenar una matriz, de 3 x 3, con una palabra de 9 de longitud, pedida por el usuario,
+//encontrando la manera de que la frase se muestre de manera continua en la matriz.
+//Por ejemplo, si tenemos la palabra habilidad, nuestra matriz se debería ver así:
+		//H A B
+		//I L I
+		//D A D
+//Nota: recordar el uso de la función Subcadena().
+
+Algoritmo rellenadoDePalabras
+	
+	Definir M,N,i,j Como Entero
+	M = 3
+	N = 3	
+	//Definir matriz y frase
+	Definir original Como Caracter
+	Definir frase Como Caracter
+	
+	Escribir "Ingrese una palabra de 9 letras:"
+	Leer frase
+		
+	Dimension original(N,M)
+	
+	// Verificar si la longitud de la palabra es igual a 9
+    Mientras Longitud(frase) <> 9 Hacer
+        Escribir "La palabra debe tener 9 letras. Ingrese nuevamente:"
+        Leer frase
+    Fin Mientras
+	
+	llenadoMatriz(original,frase, N,M)
+	imprimeMatriz(original,N,M)
+	
+FinAlgoritmo
+
+SubProceso llenadoMatriz(original,frase, N,M)
+	Definir i, j Como Entero
+	Definir contador Como Entero
+	
+	// El contador se utiliza para realizar un seguimiento de la posición actual en la cadena mientras se llena la matriz. 
+	
+	contador <- 0
+	Para i <- 0 Hasta N-1
+		Para j <- 0 Hasta M-1
+			original[i,j]=Subcadena(frase,contador,contador)
+			contador <- contador + 1
+		FinPara
+	FinPara
+FinSubProceso
+
+//Visualización de la matriz
+SubProceso imprimeMatriz(original,N,M)
+	Definir i,j Como Entero
+	Para i=0 Hasta N-1
+		Para j=0 Hasta M-1
+			Escribir "[" original(i,j) "]", " " Sin Saltar			
+		FinPara
+		Escribir " "
+	FinPara
+FinSubProceso

@@ -1,0 +1,154 @@
+//Una matriz mágica es una matriz cuadrada (tiene igual número de filas que de columnas) que
+//tiene como propiedad especial que la suma de las filas, las columnas y las diagonales es igual.
+//Por ejemplo:
+//2  7  6
+//9  5  1
+//4  3  8
+//En la matriz de ejemplo las sumas son siempre 15. Considere el problema de construir un
+//algoritmo que compruebe si una matriz de datos enteros es mágica o no, y en caso de que
+//sea mágica escribir la suma. Además, el programa deberá comprobar que los números
+//introducidos son correctos, es decir, están entre el 1 y el 9. El usuario ingresa el tamaño de la
+//matriz que no debe superar orden igual a 10.
+
+Algoritmo diagonalPrincipal
+	Definir N, i, j Como Entero
+	
+	Escribir "Ingrese el tamaño de la matriz cuadrada:"
+	Leer N
+	
+	// Definir matriz
+	Definir original Como Entero
+	Dimension original[N,N]
+	
+	//Definir diagonales, filas y columnas
+	Definir filasMagicas, columnasMagicas Como Logico
+	Definir diagonalPMagica, diagonalSMagica Como Entero
+	Imprimir "Tamaño matriz:", N * N
+	
+	llenadoMatriz(original,N)	
+	imprimeMatriz(original,N)
+	
+	filasMagicas = sonLasFilasMagicas(original,N)	
+	Imprimir "La suma de las filas de la matriz es: ", filasMagicas 
+	
+	columnasMagicas = sonLasColumnasMagicas(original,N)
+	Imprimir "La suma de las columnas de la matriz es: ", columnasMagicas
+	
+	diagonalPMagica = esLaDiagonalPMagica(original,N)
+	Imprimir "La suma de la diagonal principal de la matriz es: ", diagonalPMagica
+	
+	diagonalSMagica = esLaDiagonalSMagica(original,N)
+	Imprimir "La suma de la diagonal secundaria de la matriz es: ", diagonalSMagica
+
+	
+	Si filasMagicas Y columnasMagicas Y (diagonalPMagica == diagonalSMagica) Entonces 
+		Escribir "La matriz es mágica"
+	    Escribir "la suma de todos los lados de la matriz es igual:", filasMagicas 
+	SiNo
+		Escribir "La matriz no es mágica"
+	FinSi
+	
+		
+FinAlgoritmo
+
+// Subproceso de llenado de matriz
+SubProceso llenadoMatriz(original,N)
+	Definir i, j Como Entero
+	Para i<-0 Hasta N-1
+		Para j=0 Hasta N-1
+			Escribir "Ingrese el valor del elemento (0-9) [", i, ",", j, "]" Sin Saltar
+			Leer original(i,j)
+			Si original(i,j) > 9 Entonces
+				Escribir "Número no válido, ingrese un valor valido:"
+				Leer original(i,j)
+			FinSi
+		FinPara
+	FinPara
+FinSubProceso
+
+//suma de filas
+Funcion filasMagicas = sonLasFilasMagicas(original,N)	
+	Definir i,j,k, sumaFilas Como Entero
+	//Se implementa un vector para acumular 
+	Dimension sumaFilas[N]
+	
+	Definir filasMagicas Como Logico
+	filasMagicas <- Falso
+	
+	//Inicializando arreglo acumulador
+	Para k=0 Hasta N-1
+		sumaFilas[k]<- 0
+	FinPara
+	
+	Para i=0 Hasta N-1
+		Para j=0 Hasta N-1
+			sumaFilas[i]= sumaFilas[i] + original(i,j)			
+		FinPara		
+		Escribir "La suma de la fila ", i, " es:", sumaFilas[i]	
+	FinPara	
+	//Comparando el arreglo
+	filasMagicas <- (sumaFilas[0] == sumaFilas[1]) Y (sumaFilas[0] == sumaFilas[2])
+	
+FinFuncion
+
+//suma de columnas
+Funcion columnasMagicas = sonLasColumnasMagicas(original,N)
+	Definir i,j,k, sumaColumnas Como Entero
+	Definir sumaColumnaAnterior Como Entero
+	
+	//sumaColumnas suma las columnas cada vez que se itera
+
+	sumaColumnaAnterior <- -1 //Tener el valor previo 
+	Definir columnasMagicas Como Logico
+	columnasMagicas <- Falso
+	
+	Para i=0 Hasta N-1
+		sumaColumnas = 0 //acumulador, cada vez que se pase a la siguiente columna se reinicia, solo acumula el valor anterior. 
+		Para j=0 Hasta N-1
+			sumaColumnas = sumaColumnas + original(j,i)			
+		FinPara		
+		Escribir "La suma de la fila ", j, " es:", sumaColumnas
+		
+		//En este punto debo comparar las columnas.
+		Si sumaColumnaAnterior <> -1 Entonces //Significa que es la primera iteración.
+			columnasMagicas = sumaColumnaAnterior == sumaColumnas
+			Si columnasMagicas == Falso Entonces
+				i = N				
+			FinSi
+		FinSi
+		sumaColumnaAnterior = sumaColumnas
+	FinPara		
+FinFuncion
+
+//suma de diagonal principal
+Funcion diagonalPMagica = esLaDiagonalPMagica(original,N)
+	Definir i,j, diagonalPMagica Como Entero
+	diagonalPMagica<-0
+	Para i <- 0 Hasta N-1
+		Para j <- 0 Hasta N-1
+			Si i = j Entonces
+				diagonalPMagica = diagonalPMagica + original(i,j) // Colocar cero en la diagonal principal [0,0], [1,1], [2,2], [3,3], etc
+			FinSi	
+		FinPara
+	FinPara
+FinFuncion
+
+//suma de diagonal secundaria
+Funcion diagonalSMagica = esLaDiagonalSMagica(original,N)
+	Definir i,j, diagonalSMagica Como Entero
+	diagonalSMagica<-0
+	Para i <- 0 Hasta N-1
+		diagonalSMagica = diagonalSMagica + original(i,N-i-1) //posición diagonal secundaria
+	FinPara
+FinFuncion
+
+//Visualización de la matriz
+SubProceso imprimeMatriz(original,N)
+	Definir i,j Como Entero
+	Para i=0 Hasta N-1
+		Para j=0 Hasta N-1
+			Escribir "[" original(i,j) "]", " " Sin Saltar			
+		FinPara
+		Escribir " "
+	FinPara
+FinSubProceso

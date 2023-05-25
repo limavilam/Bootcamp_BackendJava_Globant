@@ -1,0 +1,61 @@
+//Dada una matriz de orden n * m (donde n y m son valores ingresados por el usuario) realizar
+//un subprograma que llene la matriz de numeros aleatorios. Despues, crearemos otro
+//subprograma que calcule y muestre la suma de los elementos de la matriz. Mostrar la matriz y
+//los resultados por pantalla.
+
+Algoritmo sumaNumerosMatriz
+	Definir M, N, i, j Como Entero
+	Definir sum Como Entero
+	
+	Escribir "Ingrese el número de filas que desea en la matriz:"
+	Leer N
+	Escribir "Ingrese el número de columnas que desea en la matriz:"
+	Leer M
+	
+	// Definir matriz
+	Definir original Como Entero
+	Dimension original[N,M]
+	
+	Imprimir "Tamaño matriz:", N * M
+	
+	llenadoMatriz(original,N,M)	
+	imprimeMatriz(original,N,M)
+	sum = sumaMatriz(original, N,M)
+	Imprimir "La suma de los elementos de la matriz es: ", sum
+	
+FinAlgoritmo
+
+// Subproceso de llenado de matriz
+SubProceso llenadoMatriz(matriz, N,M)
+	Definir i, j Como Entero
+	Para i <- 0 Hasta N-1
+		Para j <- 0 Hasta M-1
+			matriz[i,j] <- Aleatorio(0, 100) 
+		FinPara
+	FinPara
+FinSubProceso
+
+// Subproceso para calcular la suma de los elementos de la matriz
+Funcion sum = sumaMatriz(original, N,M) 
+	Definir i, j, sum Como Entero
+	sum= 0
+	Para i <- 0 Hasta N-1
+		Para j <- 0 Hasta M-1
+			sum = sum + original[i,j]
+		FinPara
+	FinPara
+FinFuncion
+
+//Visualización de la matriz
+SubProceso imprimeMatriz(original,N,M)
+	Definir i,j Como Entero
+	Para i=0 Hasta N-1
+		Para j=0 Hasta M-1
+			Escribir "[" original(i,j) "]", " " Sin Saltar			
+		FinPara
+		Escribir " "
+	FinPara
+FinSubProceso
+
+
+
