@@ -5,7 +5,7 @@ public class LetsDoIt5 {
 
         System.out.println("Con esta clase guardamos valores ingresados por consola con las variables");
 
-        //utiliza el método next de Scanner
+        //utiliza el método next de Scanner  cvfbcd
         System.out.println("Enter your name:");
         String name = scanner.nextLine();
 
@@ -32,6 +32,18 @@ public class LetsDoIt5 {
         System.out.println("boolean value: " + booleanVariable);
         System.out.println("double value: " + doubleVariable);
         System.out.println("Character: " + charVariable);
+
+        //Exercises book
+        System.out.println("Cadena de caracteres:");
+        String str = scanner.next();
+        System.out.println("Valor entero:");
+        int dato = scanner.nextInt();
+        scanner.close();
+
+        // Show entered values
+        System.out.println("la cadena de caracteres es:" + str);
+        System.out.println("el valor entero es: " + dato);
+
 
     }
 }
