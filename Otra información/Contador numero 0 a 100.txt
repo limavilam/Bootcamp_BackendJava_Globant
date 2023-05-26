@@ -1,0 +1,13 @@
+//Hacer un pseudocodigo que imprima los numeros del 1 al 100
+
+Algoritmo numbers
+	
+	Definir c Como Entero
+	c <- 0
+	Mientras c < 101  Hacer
+		Escribir c
+		c <- c+1
+	Fin Mientras
+	
+	
+FinAlgoritmo

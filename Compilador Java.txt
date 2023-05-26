@@ -1,0 +1,24 @@
+D:\Descargas>javac Example.java
+
+D:\Descargas>dir Exampl
+ El volumen de la unidad D es Data
+ El número de serie del volumen es: 8E87-3C2E
+
+ Directorio de D:\Descargas
+
+No se encuentra el archivo
+
+D:\Descargas>dir Exampl*
+ El volumen de la unidad D es Data
+ El número de serie del volumen es: 8E87-3C2E
+
+ Directorio de D:\Descargas
+
+23/05/2023  05:22 p. m.               418 Example.class
+23/05/2023  05:17 p. m.               119 Example.java
+               2 archivos            537 bytes
+               0 dirs  383,410,954,240 bytes libres
+D:\Descargas>java Example
+Hola Marce
+
+D:\Descargas>

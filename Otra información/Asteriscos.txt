@@ -1,0 +1,26 @@
+Algoritmo Asteriscos
+	
+	Definir arreglo Como Entero
+	Definir  i,j  Como Entero
+	
+	Escribir "Ingrese 5 numeros:"
+	Dimension arreglo[6]
+	Leer arreglo[1]
+	Leer arreglo[2]
+	Leer arreglo[3]
+	Leer arreglo[4]
+	Leer arreglo[5]
+	
+	para i=1 Hasta 5 Hacer
+		Si arreglo[i]>= 1 y arreglo[i] <= 20 Entonces
+			Escribir arreglo[i] Sin Saltar
+			para j=1 Hasta arreglo[i] Hacer
+				Escribir " *" Sin Saltar
+			FinPara
+			Escribir ""
+		SiNo
+			Escribir "El numero no esta entre el rango (1, 20)"
+		FinSi
+		
+	FinPara
+FinAlgoritmo

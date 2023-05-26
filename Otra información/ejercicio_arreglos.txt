@@ -1,0 +1,41 @@
+//crea un arreglo de 10 posiciones y llenarlo entre 0 y 9.
+//Arreglo almacena valores 
+
+Algoritmo ejercicio_arreglos
+	
+	Definir i Como Entero
+	Definir n Como Entero
+	Definir arreglo Como Entero
+	Definir suma Como Entero
+	Definir media Como Real
+	
+	n = 10
+	Dimension arreglo(n)
+	//Los arreglos siempre siempre se deben recorrer
+	
+	suma <- 0
+	media <- 0
+	
+	Para i<-0 Hasta n-1 Con Paso 1 Hacer
+		
+		//En la posición i me da el valor, en la posición 0 me colocas un 0, en la 1 un 1
+		arreglo(i) = i
+		
+		suma <- suma + arreglo(i)
+		media <- suma/n 
+		
+		
+		Escribir arreglo(i)
+		//Arroja el valor de suma general así: 1+2=3 3+3=6 6+4=10 ...
+		//Escribir suma 
+		
+		//Escribir media
+	Fin Para
+	
+	//Arroja la suma general pero más organizado
+	Escribir "La suma es: ", suma
+	
+	media <- suma/n 	
+	Escribir "La media es: ", media
+	
+FinAlgoritmo
