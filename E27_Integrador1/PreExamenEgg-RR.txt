@@ -1,0 +1,107 @@
+Algoritmo Patikalva100tifik
+	Definir n Como Entero
+	Definir indiceMejorNota Como Entero
+	Definir indicePeorNota Como Entero
+	Definir nombres Como Caracter
+	Definir calificaciones Como Real
+	n <- 10
+	Dimension nombres[n]
+	Dimension calificaciones[n]
+	
+	nombres[0] <- "Alaska"
+	calificaciones[0] <- 3.0
+	
+	nombres[1] <- "Laura"
+	calificaciones[1] <- 2.8
+	
+	nombres[2] <- "Raúl"
+	calificaciones[2] <- 1.0
+	
+	nombres[3] <- "Júan"
+	calificaciones[3] <- 3.9
+	
+	nombres[4] <- "Mora"
+	calificaciones[4] <- 4.5
+	
+	nombres[5] <- "Lina"
+	calificaciones[5] <- 5.0
+	
+	nombres[6] <- "Alejandra"
+	calificaciones[6] <- 4.0
+	
+	nombres[7] <- "María"
+	calificaciones[7] <- 4.8
+	
+	nombres[8] <- "Michelle"
+	calificaciones[8] <- 0.01
+	
+	nombres[9] <- "Stephany"
+	calificaciones[9] <- 4.0
+	
+	indiceMejorNota <- obtenerIndiceMaximaCalificacion(calificaciones, n) 
+	Escribir "La nota más alta la obtuvo: ", nombres[indiceMejorNota], " con calificación de: ", calificaciones[indiceMejorNota]
+ 	
+	indicePeorNota <- obtenerIndiceMinimaCalificacion(calificaciones, n)
+	Escribir "La nota más baja la obtuvo: ", nombres[indicePeorNota], " con calificación de: ", calificaciones[indicePeorNota]
+ 	
+	Escribir "El promedio de notas es: ", promedioCalificaciones(calificaciones, n)
+	
+	escribirGanadoresDePremio(calificaciones, nombres, n)
+	
+FinAlgoritmo
+
+Funcion indiceMejorNota <- obtenerIndiceMaximaCalificacion(calificaciones, n) 
+	Definir indiceMejorNota Como Entero //almacenará el índice de la máxima calificación
+	Definir mejorNota Como Real
+	Definir i Como Entero
+	
+	mejorNota <- calificaciones[0]
+	indiceMejorNota <- 0
+	
+	Para i <- 1 Hasta n-1 Con Paso 1 Hacer
+		Si calificaciones[i] > mejorNota Entonces
+			mejorNota <- calificaciones[i]
+			indiceMejorNota <- i //Devuelve el valor arrojado acá como resultado de la función.
+		FinSi
+	FinPara
+	
+FinFuncion
+
+Funcion indicePeorNota <- obtenerIndiceMinimaCalificacion(calificaciones, n)
+	Definir indicePeorNota Como Entero
+	Definir peorNota Como Real
+	Definir i Como Entero
+	
+	peorNota <- calificaciones[0]
+	indicePeorNota <- 0
+	
+	Para i <- 1 Hasta n-1 Con Paso 1 Hacer
+		Si calificaciones[i] < peorNota Entonces
+			peorNota <- calificaciones[i]
+			indicePeorNota <- i
+		FinSi
+	FinPara	
+FinFuncion
+
+Funcion promedio <- promedioCalificaciones(calificaciones, n)
+	Definir promedio Como Real
+	Definir contador Como Entero
+	contador = n-1
+	promedio <- 0
+	Repetir 
+		promedio = promedio + calificaciones[contador]
+		contador = contador -1
+	Hasta Que contador ==-1 //Omite cuando lo dejo en 0, me omite la posición 0. 
+	promedio = promedio/n
+FinFuncion
+
+SubProceso escribirGanadoresDePremio(calificaciones, nombres, n)
+	Definir i Como Real
+	Para i = 1 Hasta n-1 Con Paso 1
+		//Si nombres[i] >= 4.8
+		Si calificaciones[i] >= 4.8
+			Escribir nombres[i] , " es ganador del reconocimiento"
+		FinSi
+	FinPara
+FinSubProceso
+	
