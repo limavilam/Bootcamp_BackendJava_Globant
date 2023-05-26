@@ -1,0 +1,93 @@
+Algoritmo EjercicioCooperativoG5
+
+	Definir matriz, palabra Como Caracter
+	Definir N, M, i Como Entero
+	
+	N = 9
+	M = 12
+	
+	Dimension matriz(N,M)
+	
+	Escribir "Esta es la matriz base: "
+	iniciarMatriz(matriz,N,M)
+	imprimeMatriz(matriz,N,M)
+	Escribir "Ahora debemos llenar la matriz con las palabras indicadas..."
+		
+	Para i <- 0 Hasta N-1 Con Paso 1 Hacer
+        Escribir "Ingrese la palabra ", i
+        Leer palabra
+		palabra = Mayusculas(palabra)
+		agregarPalabra(matriz,i,palabra)
+		imprimeMatriz(matriz,N,M)
+    FinPara
+ 	
+	Escribir "Matriz con las letras en su nueva posicion donde R se ubica en la columna 5: "
+	acomodarPalabra(matriz)
+	imprimeMatriz(matriz,N,M)
+	
+FinAlgoritmo
+
+SubProceso iniciarMatriz(matriz Por Referencia, N,M)
+	Definir i,j Como Entero
+	Para i <- 0 Hasta N-1 Hacer
+		Para j <- 0 Hasta M-1 Hacer
+			matriz(i,j) = "*"
+		FinPara
+	FinPara
+FinSubProceso
+
+SubProceso imprimeMatriz(matriz,N,M)
+	Definir i,j Como Entero
+	Para i <- 0 Hasta N-1 Hacer
+		Para j <- 0 Hasta M-1 Hacer
+			Escribir Sin Saltar matriz(i,j), " "
+		FinPara
+		Escribir ""
+	FinPara
+FinSubProceso
+
+SubProceso agregarPalabra(matriz Por Referencia,fila,palabra)
+	Definir i Como Entero
+	Para i <- 0 Hasta Longitud(palabra)-1 Hacer
+		matriz(fila,i) = Subcadena(palabra,i,i)
+	FinPara
+FinSubProceso
+
+Funcion R <- BuscarR(matriz, fila)
+	Definir i, R Como Entero
+	Definir encontrada Como Logico
+	i = 0; encontrada = Falso
+	Mientras encontrada == Falso Y i<12
+		Si matriz(fila,i) == "R" Entonces
+			encontrada = Verdadero
+			R = i
+		FinSi
+		i = i + 1
+	FinMientras
+FinFuncion
+
+SubProceso acomodarPalabra(matriz)
+	Definir R, i, j, contador Como Entero
+	Definir aux Como Caracter
+	contador = 0; aux = ""
+	Para i <- 0 Hasta 8 Hacer
+		Para j <- 0 Hasta 11 Hacer
+			Si matriz(i,j) <> "*" Entonces
+				aux = aux + matriz(i,j)
+			FinSi
+		FinPara
+		R = BuscarR(matriz,i)
+		Para j <- 0 Hasta 11 Hacer
+			Si j < (5 - R) Entonces
+				matriz(i,j) = "*"
+			SiNo
+				matriz(i,j) = Subcadena(aux,contador,contador)
+				contador = contador + 1
+			FinSi
+			Si contador > Longitud(aux) Entonces
+				matriz(i,j) = "*"
+			FinSi
+		FinPara
+		contador = 0; aux = ""
+	FinPara
+FinSubProceso
