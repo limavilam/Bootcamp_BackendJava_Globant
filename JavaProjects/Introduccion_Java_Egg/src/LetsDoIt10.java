@@ -27,7 +27,7 @@ public class LetsDoIt10 {
 
             // Verificar que el número esté dentro del rango válido
             if (number >= 1 && number<= 20) {
-                System.out.print(number + " ");
+                System.out.print(number + " "); //imprime el numero más los asteriscos
                 for (int j = 0; j < number; j++) {
                     System.out.print("*");
                 }
