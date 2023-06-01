@@ -52,7 +52,7 @@ public class Exercise11 {
                     break;
                 case 5:
                     System.out.println("¿Está seguro que desea salir del programa? S/N");
-                    confirmation = scanner.skip("\n").nextLine(); //Usado para que no incluya el enter al momento de colocar la entrada.
+                    confirmation = scanner.skip("\n").nextLine(); //El método skip permite saltar n caracteres en el flujo de entrada para que no estén presentes en la próxima operación de lectura
                     if (confirmation.equalsIgnoreCase("S")) {
                         System.out.println("Saliendo del programa");
                         return;
