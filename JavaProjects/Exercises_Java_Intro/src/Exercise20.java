@@ -13,6 +13,7 @@ public class Exercise20 {
 
         int[][] matrixMagic = new int[3][3];
 
+        //Ingreso de los números.
         System.out.println("Ingrese los números del cuadrado mágico:");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
