@@ -56,6 +56,9 @@ public class Exercise21 {
                             break;
                         }
                     }
+
+                    //se utiliza para salir del bucle interno cuando no hay coincidencia
+                    // entre los elementos de la matriz principal y la submatriz secundaria en alguna posición.
                     if (!matrixMatch) {
                         break;
                     }
@@ -72,11 +75,11 @@ public class Exercise21 {
             }
         }
         if (matrixFound) {
-            System.out.println("La matriz P está contenida en la matriz M.");
+            System.out.println("La matriz está contenida en la matriz principal.");
             System.out.println("Fila de inicio: " + starRow);
             System.out.println("Columna de inicio: " + starColumn);
         } else {
-            System.out.println("La matriz P no está contenida en la matriz M.");
+            System.out.println("La matriz no está contenida en la matriz principal.");
         }
     }
 }
