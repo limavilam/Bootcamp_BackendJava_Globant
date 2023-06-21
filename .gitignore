@@ -1,7 +1,13 @@
 ### IntelliJ IDEA ###
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+JavaProjects/**/.idea
+JavaProjects/**/out/
+!**JavaProjects/**/src/main/**/out/
+!**JavaProjects/**/src/test/**/out/
+JavaProjects/**/target/
+JavaProjects/**/logs/
+*.class
+.idea
+*.iml
 
 ### Eclipse ###
 .apt_generated
