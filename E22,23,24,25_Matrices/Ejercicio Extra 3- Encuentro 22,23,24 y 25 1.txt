@@ -1,0 +1,47 @@
+//Realizar un programa que cree una matriz de 5x15 y deberemos llenar la matriz de unos y ceros. 
+//Llenando el marco o la delimitación externa de la matriz de unos y la parte interna de ceros
+
+Algoritmo matrizUnoyCero
+	
+	
+	Definir M, N, i, j Como Entero
+	
+	N=4
+	Escribir "El número de filas es:", N
+	
+	M=6
+	Escribir "Ingrese el número de columnas es:", M
+	
+	
+	Definir original Como Entero
+	
+	Dimension original[N,M]
+
+	Imprimir "Tamaño matriz:", N * M
+	
+	
+	Para i = 0 Hasta N-1 Con Paso 1 Hacer
+		
+		Para j= 0 Hasta M-1 Con Paso 1 Hacer
+			
+			Si i = 0 o i = N-1 o j= 0 o j= M-1  Entonces 
+				
+				Escribir " [ 1 ] " Sin Saltar
+				
+			SiNo
+				
+				Escribir  " [ 0 ] " Sin Saltar
+				
+			FinSi
+			
+		Fin Para
+		
+		Escribir " "
+		
+	Fin Para
+	
+	
+	
+	
+	
+FinAlgoritmo

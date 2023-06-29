@@ -1,6 +1,5 @@
 package geometry;
 
-import geometry.shape.Circunferencia;
 import geometry.shape.Cuadrado;
 public class MainCuadrado {
     public static void main(String[] args){

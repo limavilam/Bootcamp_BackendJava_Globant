@@ -18,13 +18,19 @@ public class Rectangulo {
         this.altura =altura;
     }
 
-    //Método para crear el rectángulo con los datos del Rectángulo dados por el usuario.
+    /*//Método para crear el rectángulo con los datos del Rectángulo dados por el usuario.
     public void cargarRectangulo(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el valor de la base del rectángulo:");
         base = scanner.nextDouble();
         System.out.print("Ingrese el valor de la altura del rectángulo:");
-        altura = scanner.nextDouble();
+        altura = scanner.nextDouble();*/
+    //Constructores
+
+    public Rectangulo(){}
+    public Rectangulo(double base, double altura){
+        this.base = base;
+        this.altura=altura;
     }
 
     //Método para calcular el área y perímetro del rectángulo.

@@ -1,0 +1,148 @@
+//Realizar un programa que calcule la multiplicación de dos matrices de enteros de 3x3. 
+//Inicialice las matrices para evitar el ingreso de datos por teclado.
+
+Algoritmo matrizLlenado3x3
+	Definir matrizA, matrizB, matrizC, N, M, i,j,z, suma Como Entero
+	
+	Escribir "Ingrese el tamaño de la matriz cuadrada:"
+	Leer N,M
+	
+	Dimension matrizA[N,M], matrizB[N,M], matrizC[N,M]
+	
+	
+	llenadoMatrizA(matrizA, N,M)
+	llenadoMatrizB(matrizB, N,M)
+	multiplicacionMatrices(matrizA, matrizB, matrizC, N,M)
+	imprimeMatriz(matrizA,N,M)
+	imprimeMatrizB(matrizB, N,M)
+	imprimeMatrizC(matrizC, N,M)
+	
+	
+FinAlgoritmo
+
+// Subproceso de llenado de matriz A
+
+SubProceso llenadoMatrizA(matrizA, N,M)
+	
+	Definir i, j Como Entero
+	
+	Para i <- 0 Hasta N-1
+		
+		Para j <- 0 Hasta M-1
+			
+			matrizA[i,j] <- Aleatorio(0, 10) 
+			
+		FinPara
+		
+	FinPara
+	
+FinSubProceso
+
+// Subproceso de llenado de matriz B
+
+SubProceso llenadoMatrizB(matrizB, N,M)
+	
+	Definir i, j Como Entero
+	
+	Para i <- 0 Hasta N-1
+		
+		Para j <- 0 Hasta M-1
+			
+			matrizB[i,j] <- Aleatorio(0, 10) 
+			
+		FinPara
+		
+	FinPara
+	
+FinSubProceso
+
+//Multiplicación de matrices
+
+SubProceso multiplicacionMatrices(matrizA, matrizB, matrizC, N,M)
+	
+	Definir i, j, z, suma Como Entero
+	
+	suma = 0
+	
+	Para i <- 0 Hasta N-1
+		
+		Para j <- 0 Hasta M-1
+			
+			Para z <- 0 Hasta M-1
+				
+				suma = suma + matrizA[i,z] * matrizB[z,j]
+				
+			FinPara
+			
+			matrizC[i,j]=suma
+			suma = 0
+			
+		FinPara
+		
+	FinPara
+	
+FinSubProceso
+
+//Visualización de la matriz A
+
+SubProceso imprimeMatriz(matrizA,N,M)
+	
+	Definir i,j Como Entero
+	
+	Escribir "La matriz A es: "
+	Para i=0 Hasta N-1
+		
+		Para j=0 Hasta M-1
+			
+			Escribir "[" matrizA(i,j) "]", " " Sin Saltar			
+			
+		FinPara
+		
+		Escribir " "
+		
+	FinPara
+	
+FinSubProceso
+
+//Visualización de la matriz B
+
+SubProceso imprimeMatrizB(matrizB, N,M)
+	
+	Definir i,j Como Entero
+	
+	Escribir "La matriz B es: "
+	Para i=0 Hasta N-1
+		
+		Para j=0 Hasta M-1
+			
+			Escribir "[" matrizB(i,j) "]", " " Sin Saltar			
+			
+		FinPara
+		
+		Escribir " "
+		
+	FinPara
+	
+FinSubProceso
+
+//Visualización de la matriz C
+
+SubProceso imprimeMatrizC(matrizC,N,M)
+	
+	Definir i,j Como Entero
+	
+	Escribir "La matriz C es: "
+	Para i=0 Hasta N-1
+		
+		Para j=0 Hasta M-1
+			
+			Escribir "[" matrizC(i,j) "]", " " Sin Saltar			
+			
+		FinPara
+		
+		Escribir " "
+		
+	FinPara
+	
+FinSubProceso
+

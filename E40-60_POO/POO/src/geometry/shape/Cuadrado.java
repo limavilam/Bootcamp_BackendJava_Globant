@@ -1,5 +1,7 @@
 package geometry.shape;
 
+import java.util.Scanner;
+
 public class Cuadrado {
 
     private double lado;
