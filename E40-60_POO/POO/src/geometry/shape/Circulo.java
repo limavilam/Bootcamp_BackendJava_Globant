@@ -1,10 +1,10 @@
 package geometry.shape;
 
-public class Circunferencia {
+public class Circulo {
 
     private double radio;
 
-    public Circunferencia(double radio){
+    public Circulo(double radio){
         this.radio = radio;
     }
     public double getRadio (){

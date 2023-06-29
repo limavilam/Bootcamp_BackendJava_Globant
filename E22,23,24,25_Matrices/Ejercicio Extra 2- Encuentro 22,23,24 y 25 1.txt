@@ -1,0 +1,82 @@
+Algoritmo transporte_matriz
+	
+	Definir M,N,i,j Como Entero
+	
+	
+	
+	//Definir matrices
+	
+	Definir original, transpuesta Como Real 
+	
+	
+	
+	Escribir "Ingrese la cardinalidad de M y N de la matriz original"
+	
+	Leer M,N
+	
+	
+	
+	Dimension original(M,N), transpuesta(N,M)
+	
+	
+	
+	Para i<-0 Hasta M-1
+		
+		Para j=0 Hasta N-1
+			
+			original(i,j) = Aleatorio(1,100)
+			
+		FinPara
+		
+	FinPara
+	
+	
+	
+	imprimeMatriz(original,M,N)
+	
+	
+	
+	Para i<-0 Hasta M-1
+		
+		Para j=0 Hasta N-1
+			
+			transpuesta(j,i) = original(i,j)
+			
+		FinPara
+		
+	FinPara
+	
+	
+	
+	Imprimir "Tamaño :" , (M*N)
+	
+	Imprimir "Matriz transpuesta: "
+	
+	imprimeMatriz(transpuesta, N, M)
+	
+	
+	
+FinAlgoritmo
+
+
+SubProceso imprimeMatriz(matriz, M,N)
+	
+	Definir i,j Como Entero
+	
+	Para i=0 Hasta M-1
+		
+		Para j=0 Hasta N-1
+			
+			Escribir "[" matriz(i,j) "]", " " Sin Saltar			
+			
+		FinPara
+		
+		Escribir " "
+		
+	FinPara
+	
+FinSubProceso
+
+
+
+

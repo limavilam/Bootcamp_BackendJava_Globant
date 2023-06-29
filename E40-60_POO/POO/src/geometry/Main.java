@@ -1,11 +1,11 @@
 package geometry;
 
-import geometry.shape.Circunferencia;
+import geometry.shape.Circulo;
 
 public class Main {
 
     public static void main(String[] args){
-        Circunferencia circulo1 = new Circunferencia(20);
+        Circulo circulo1 = new Circulo(20);
 
         System.out.println("El aréa del circulo cuando su radio es : " + circulo1.area());
         System.out.println("El perimétro del circulo cuando su radio es : " + circulo1.perimetro());

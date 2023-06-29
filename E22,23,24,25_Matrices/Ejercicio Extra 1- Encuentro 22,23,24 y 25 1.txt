@@ -1,0 +1,74 @@
+//Realizar un subprograma que rellene con numeros aleatorios 
+
+Algoritmo llenadoMatrizEjercicio
+	
+	Definir M, N, i, j Como Entero
+	
+	Escribir "Ingrese el número de filas que desea en la matriz:"
+	
+	Leer N
+	
+	Escribir "Ingrese el número de columnas que desea en la matriz:"
+	
+	Leer M
+	
+	
+	
+	// Definir matriz
+	
+	Definir original Como Entero
+	
+	Dimension original[N,M]
+	
+	
+	
+	Imprimir "Tamaño matriz:", N * M
+	
+	
+	
+	llenadoMatriz(original,N,M)	
+	
+	imprimeMatriz(original,N,M)
+	
+FinAlgoritmo
+
+
+
+// Subproceso de llenado de matriz
+
+SubProceso llenadoMatriz(matriz, N,M)
+	
+	Definir i, j Como Entero
+	
+	Para i <- 0 Hasta N-1
+		
+		Para j <- 0 Hasta M-1
+			
+			matriz[i,j] <- Aleatorio(0, 100) 
+			
+		FinPara
+		
+	FinPara
+	
+FinSubProceso
+
+
+//Visualización de la matriz
+
+SubProceso imprimeMatriz(original,N,M)
+	
+	Definir i,j Como Entero
+	
+	Para i=0 Hasta N-1
+		
+		Para j=0 Hasta M-1
+			
+			Escribir "[" original(i,j) "]", " " Sin Saltar			
+			
+		FinPara
+		
+		Escribir " "
+		
+	FinPara
+	
+FinSubProceso
