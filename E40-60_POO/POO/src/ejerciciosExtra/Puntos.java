@@ -15,12 +15,14 @@ public class Puntos {
     public Puntos() {
     }
 
-    public Puntos(double x1, double x2, double y1, double y2) {
+    //Nunca se usó el constructor con parámetros.
+
+    /*public Puntos(double x1, double x2, double y1, double y2) {
         this.x1 = x1;
         this.x2 = x2;
         this.y1 = y1;
         this.y2 = y2;
-    }
+    }*/
 
     //Métodos set y get.
 
@@ -53,7 +55,7 @@ public class Puntos {
     }
 
     public void setY2(double y2) {
-        this.y2 = y2;
+        Puntos.y2 = y2; //this.y2=y2 -->accessed via instance reference
     }
 
     //Metodo crearPuntos
@@ -73,9 +75,9 @@ public class Puntos {
         punto.setY2(scanner.nextDouble());
     }
 
-    public static double calcularDistancia(Puntos distancias){
-        double distancia =  Math.sqrt(Math.pow((distancias.getX2() - distancias.getX1()),2) + (Math.pow((distancias.getY2() - distancias.getY1()),2)));
-        return distancia;
+    public static double calcularDistancia(Puntos distancia){
+        double distancias =  Math.sqrt(Math.pow((Puntos.getX2() - Puntos.getX1()),2) + (Math.pow((Puntos.getY2() - Puntos.getY1()),2)));
+        return distancias;
     }
 
     public static void main(String[] args){
