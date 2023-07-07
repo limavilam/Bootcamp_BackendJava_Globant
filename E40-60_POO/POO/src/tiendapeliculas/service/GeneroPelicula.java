@@ -3,7 +3,7 @@ package tiendapeliculas.service;
 public enum GeneroPelicula {
 
     TERROR,
-    ROMANTICA,
+    ROMANCE,
     COMEDIA,
     AVENTURA,
     FICCION,
