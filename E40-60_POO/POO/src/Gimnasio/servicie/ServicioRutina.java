@@ -18,9 +18,9 @@ public class ServicioRutina {
         return rutinas;
     }
 
-    public void setRutinas(ArrayList<Rutina> rutinas) {
-        this.rutinas = rutinas;
-    }
+    //public void setRutinas(ArrayList<Rutina> rutinas) {
+    //    this.rutinas = rutinas;
+    //}
     public Rutina datosRutina(UUID id) {
         Scanner scanner = new Scanner(System.in);
         String name;
