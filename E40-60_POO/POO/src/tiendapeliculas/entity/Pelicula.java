@@ -12,6 +12,7 @@ public class Pelicula {
     public Pelicula() {
     }
 
+
     public Pelicula(String tituloPelicula, GeneroPelicula genero, int anio, int duracion) {
         this.tituloPelicula = tituloPelicula;
         this.genero = genero;
