@@ -1,5 +1,7 @@
 package MascotaApp;
 
+import MascotaApp.servicios.servicioMascota;
+
 import java.util.ArrayList;
 
 public class MascotApp {
@@ -33,6 +35,15 @@ public class MascotApp {
         System.out.println(nombresArrayList.size());
 
         System.out.println(Integer.MAX_VALUE); //La máxima dimensión que soporta un array.
+
+        //Video no.2: Usando ArrayList
+
+        servicioMascota servicioDeMascota = new servicioMascota();
+        //Creo dos mascotas
+        servicioDeMascota.crearMascota();
+        servicioDeMascota.crearMascota();
+        //muestro las mascotas
+        servicioDeMascota.mostrarMascostas();
     }
 
 }
