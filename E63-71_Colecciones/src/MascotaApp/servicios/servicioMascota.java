@@ -42,9 +42,17 @@ public class servicioMascota {
         //Cada vez que llame a crear mascota voy a ver un String guardado en mascota.
         //mascotas.add(mascota);
 
-        return new mascota(nombre,apodo,tipo);
+        mascota m = new mascota(nombre,apodo,tipo);
 
+        mascotas.add(m);
 
+        return m;
+        //También podría return new mascota(nombre,apodo,tipo);
+
+    }
+
+    public void agregarMascota(mascota m){
+        mascotas.add(m);
     }
     
     //Muestro las mascotas
@@ -54,15 +62,77 @@ public class servicioMascota {
         //for (String aux: mascotas) { //aux tomara la posición de cada uno de los elementos en la lista
         //    System.out.println(aux);
         //}
-        //video 3:
 
+        //video 3: mascotas no es un tipo de String
         for (mascota aux: mascotas){
             System.out.println(aux.toString());
         }
         System.out.println("cantidad = " + mascotas.size());
     }
 
-    public void fabricaMascotas(int cantidad){
+
+    /**
+     *
+     * @param cantidad equivale a la cantidad de mascotas a crear y
+     *  añadir a la lista.
+     *
+     */
+
+    //Crea mascotas, todos chiquitos.
+
+    public void fabricaChiquitos(int cantidad){
+
+        for (int i=0; i < cantidad; i++){
+            //Creando las mascotas
+            //También se puede escribir como mascota aux = new mascota("Fer", "chiquito", "beagle"))
+            mascotas.add(new mascota("Fer", "chiquito", "beagle"));
+        }
+    }
+
+    //Crea mascotas pidiendo datos por teclado.
+    public void fabricaMascota(int cantidad){
+
+        for(int i=0; i < cantidad; i++){
+            mascota mascotaCreada = crearMascota();
+
+            agregarMascota(mascotaCreada);
+
+            System.out.println(mascotaCreada.toString());
+        }
+    }
+
+    /*public void actualizarMascota(int index){
+        mascota m = mascotas.get(index);
+        m.setApodo("Roberto");
+    }*/
+
+    /*public void actualizarMascota(int index){
+        mascota m = crearMascota();
+        mascota.set(index,m);
+    }*/
+
+    //Aplicar Try and Catch
+    public void actualizarMascota(int index) {
+
+        if (index <= (mascotas.size()-1)){
+            System.out.println(" ");
+            System.out.println("---Actualizar---");
+        }
+        mascota m = crearMascota();
+      //  mascota.set(index, m);
+    //}else{
+        System.out.println("El indice es erróneo");
+    }
+
+    public void eliminarMascota(int index){
+        if (index <= (mascotas.size()-1)){
+            mascotas.remove(index);  //Puede eliminarse con objeto o con indices
+        }else{
+        System.out.println("Fallo al eliminar.El indice es erróneo");
+    }
 
     }
+
+
+
 }

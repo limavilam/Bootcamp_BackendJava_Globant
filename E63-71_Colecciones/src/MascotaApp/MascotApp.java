@@ -3,11 +3,24 @@ package MascotaApp;
 import MascotaApp.servicios.servicioMascota;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MascotApp {
 
     public static void main(String[] args){
+
+        //Otra curiosidad de ArrayList
+
+        String [] nombres = {"pepe", "pepa"};
+        List<String> nombresList = new ArrayList(Arrays.asList(nombres));
+
+        List<String> nombresList2 = new ArrayList();
+        nombresList2.addAll(0,nombresList);
+
         String [] nombresArray = new String[5];
+
+        //
 
         //Arrays
 
@@ -44,6 +57,12 @@ public class MascotApp {
         servicioDeMascota.crearMascota();
         //muestro las mascotas
         servicioDeMascota.mostrarMascostas();
+
+        //servicioDeMascota.fabricaChiquitos(5);
+        //servicioDeMascota.fabricaMascota(2);
+        //servicioDeMascota.agregarMascota();
+        servicioDeMascota.mostrarMascostas();
+
     }
 
 }
