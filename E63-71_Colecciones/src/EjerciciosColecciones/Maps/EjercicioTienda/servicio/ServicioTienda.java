@@ -35,6 +35,7 @@ public class ServicioTienda {
     }
 
     //Otra manera de mostrarlo
+    //https://www.delftstack.com/es/howto/java/how-to-print-hashmap-in-java/#imprime-los-elementos-de-hashmap-usando-el-m%c3%a9todo-keyset-en-java
 
     /*public void mostrarProductos() {
         System.out.println("Lista de productos:");
@@ -44,7 +45,6 @@ public class ServicioTienda {
             System.out.println(nombreProducto + " - Precio: " + precio);
         }
     }*/
-
 
     public void mostrarProductos() {
         for (String nombreProducto : productosTienda.keySet()) {
