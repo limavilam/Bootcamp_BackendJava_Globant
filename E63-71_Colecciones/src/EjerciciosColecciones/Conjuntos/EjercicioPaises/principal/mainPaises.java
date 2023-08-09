@@ -1,4 +1,4 @@
-package EjerciciosColecciones.Conjuntos;
+package EjerciciosColecciones.Conjuntos.EjercicioPaises.principal;
 
 import EjerciciosColecciones.Conjuntos.EjercicioPaises.servicio.ServicioPaises;
 

@@ -1,4 +1,4 @@
-package EjerciciosColecciones;
+package EjerciciosColecciones.Listas.EjercicioRazasPerros;
 
 import java.util.ArrayList;
 import java.util.Scanner;
