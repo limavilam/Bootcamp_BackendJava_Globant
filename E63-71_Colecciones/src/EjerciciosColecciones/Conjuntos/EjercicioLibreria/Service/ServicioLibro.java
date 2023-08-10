@@ -35,7 +35,7 @@ public class ServicioLibro {
         System.out.print("Ingrese el número de ejemplares disponibles: ");
         int numEjemplares = scanner.nextInt();
 
-        // Limpiamos el buffer después de leer el número entero.
+        // Limpiamos el buffer después de leer el número entero. TipJuanMa
         scanner.nextLine();
 
         Libro nuevoLibro = new Libro(titulo, autor, numEjemplares);
