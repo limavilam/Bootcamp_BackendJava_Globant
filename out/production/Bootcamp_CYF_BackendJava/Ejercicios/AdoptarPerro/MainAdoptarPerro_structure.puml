@@ -1,0 +1,170 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Ejercicios.AdoptarPerro.MainAdoptarPerro",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_878860071 { 
+   	label=AdoptarPerro
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   MainAdoptarPerro1001142683[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)MainAdoptarPerro</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Perro1001142683[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Perro</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   edad: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nombre: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   raza: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   tamanio: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Persona1001142683[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Persona</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   apellido: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   documento: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   edad: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nombre: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   perritosAdoptados: ArrayList&lt;Perro&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ agregarPerrito(perro: Perro)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ServicioAdopcionDePerros1001142683[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ServicioAdopcionDePerros</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   listaPersonas: ArrayList&lt;Persona&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   perrosAdoptados: HashMap&lt;Perro, Persona&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   perrosDisponiblesParaAdopcion: ArrayList&lt;Perro&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   scanner: Scanner [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ menu()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ mostrarMenuPrincipal()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+MainAdoptarPerro1001142683 -> ServicioAdopcionDePerros1001142683[label="main() -> menu()"];
+Persona1001142683 -> Perro1001142683[label="perritosAdoptados
+[0..*]"];
+ServicioAdopcionDePerros1001142683 -> Perro1001142683[label="perrosAdoptados
+[0..*]"];
+ServicioAdopcionDePerros1001142683 -> Perro1001142683[label="perrosDisponiblesParaAdopcion
+[0..*]"];
+ServicioAdopcionDePerros1001142683 -> Persona1001142683[label="listaPersonas
+[0..*]"];
+ServicioAdopcionDePerros1001142683 -> Persona1001142683[label="perrosAdoptados
+[0..*]"];
+    
+}
+@enduml

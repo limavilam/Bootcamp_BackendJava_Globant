@@ -1,0 +1,165 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Ejercicios.Cine.Asiento",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_2100413 { 
+   	label=Cine
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Asiento1277004215[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Asiento</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   espectador: Espectador [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ ubicar(espectador: Espectador)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Espectador1277004215[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Espectador</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   edad: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nombre: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   saldo: float [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ crearEspectador(): Espectador</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Generador1277004215[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Generador</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   random: Random [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ sigColumna(): char</TD></TR>
+<TR><TD ALIGN="LEFT" >+ sigEdad(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ sigFila(): char</TD></TR>
+<TR><TD ALIGN="LEFT" >+ sigNombre(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ sigSaldo(): float</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Sala1277004215[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Sala</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   asientos: Asiento[][] [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pelicula: Pelicula [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- convertirColumna(columna: char): int</TD></TR>
+<TR><TD ALIGN="LEFT" >- convertirFila(fila: char): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ ubicar(espectador: Espectador, fila: char, columna: char): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Asiento1277004215 -> Espectador1277004215[label="espectador
+[0..1]"];
+Sala1277004215 -> Asiento1277004215[label="asientos
+[0..*]"];
+    
+}
+@enduml
