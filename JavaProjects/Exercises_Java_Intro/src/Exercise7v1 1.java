@@ -1,10 +1,10 @@
-public class Exercise7v1 {
-    public static void main(String[] args) {
-        Exercise7v1 exercise = new Exercise7v1();
-        exercise.equals();
-    }
+//public class Exercise7v1 {
+  //  public static void main(String[] args) {
+    //    Exercise7v1 exercise = new Exercise7v1();
+        //xercise.equals();
+    //}
 
-    public void equals() {
+   /* public void equals() {
         String sCadena1 = new String("Avila");
         String sCadena2 = new String("Salamanca");
         String sCadena3 = new String("Avila");
@@ -17,5 +17,5 @@ public class Exercise7v1 {
             System.out.println(sCadena1 + " y " + sCadena3 + " son IGUALES");
         else
             System.out.println(sCadena1 + " y " + sCadena3 + " son DIFERENTES");
-    }
-}
+    }*/
+//}
