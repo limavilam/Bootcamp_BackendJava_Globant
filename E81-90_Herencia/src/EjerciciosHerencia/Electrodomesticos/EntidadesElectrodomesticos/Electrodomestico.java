@@ -3,6 +3,8 @@ package EjerciciosHerencia.Electrodomesticos.EntidadesElectrodomesticos;
 import EjerciciosHerencia.Electrodomesticos.ServiceElectrodomesticos.Colores;
 import EjerciciosHerencia.Electrodomesticos.ServiceElectrodomesticos.ConsumoEnergetico;
 
+import java.util.Scanner;
+
 public class Electrodomestico {
     private double precio;
     private Colores color;
@@ -75,6 +77,29 @@ public class Electrodomestico {
             }
         }
         return false;
+    }
+
+    public void crearElectrodomestico() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el precio del electrodoméstico: ");
+        double precioUsuario = scanner.nextDouble();
+        setPrecio(precioUsuario);
+
+        System.out.println("Ingrese el color del electrodoméstico: ");
+        String colorUsuario = scanner.next();
+        if (Colores.esColorValido(colorUsuario)) {
+            setColor(colorUsuario.toLowerCase());
+        } else {
+            setColor("blanco"); // Color por defecto si no es válido
+        }
+
+        System.out.println("Ingrese el consumo energético (A, B, C, D, E o F): ");
+        char consumoUsuario = scanner.next().charAt(0);
+        comprobarConsumoEnergetico(consumoUsuario);
+
+        // Cerrar el scanner después de su uso
+        scanner.close();
     }
 
 
