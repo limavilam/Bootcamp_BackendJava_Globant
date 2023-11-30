@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.EmpleadosClass" table="empleados" schema="personal">
+        <id name="idEmp">
+            <column name="id_emp" sql-type="int unsigned"/>
+        </id>
+        <property name="nombre">
+            <column name="nombre" sql-type="char(30)" length="30"/>
+        </property>
+        <property name="sexEmp">
+            <column name="sex_emp" sql-type="char(1)" length="1"/>
+        </property>
+        <property name="fecNac">
+            <column name="fec_nac" sql-type="date"/>
+        </property>
+        <property name="fecIncorporacion">
+            <column name="fec_incorporacion" sql-type="date"/>
+        </property>
+        <property name="salEmp">
+            <column name="sal_emp" sql-type="float" precision="-1"/>
+        </property>
+        <property name="comisionEmp">
+            <column name="comision_emp" sql-type="float" precision="-1"/>
+        </property>
+        <property name="cargoEmp">
+            <column name="cargo_emp" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="idDepto">
+            <column name="id_depto" sql-type="int unsigned"/>
+        </property>
+        <many-to-one name="departamentosByIdDepto" class="org.example.DepartamentosClass" insert="false" update="false">
+
+            <column name="id_depto"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
+
+<!--&lt;!&ndash;//<many-to-one name="departamentosByIdDepto" class="org.example.DepartamentosClass", toca ponerlo en modo lectura>-->

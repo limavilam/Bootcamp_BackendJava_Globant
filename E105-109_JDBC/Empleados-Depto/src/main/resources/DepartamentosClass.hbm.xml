@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.example.DepartamentosClass" table="departamentos" schema="personal">
+        <id name="idDepto">
+            <column name="id_depto" sql-type="int unsigned"/>
+        </id>
+        <property name="nombreDepto">
+            <column name="nombre_depto" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="ciudad">
+            <column name="ciudad" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+        <property name="nombreJefeDepto">
+            <column name="nombre_jefe_depto" sql-type="char(30)" length="30" not-null="true"/>
+        </property>
+        <set name="empleadosByIdDepto" inverse="true">
+            <key>
+                <column name="id_depto"/>
+            </key>
+            <one-to-many not-found="ignore" class="org.example.EmpleadosClass"/>
+        </set>
+    </class>
+</hibernate-mapping>
