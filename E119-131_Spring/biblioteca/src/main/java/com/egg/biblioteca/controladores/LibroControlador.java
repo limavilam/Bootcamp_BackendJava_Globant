@@ -10,10 +10,7 @@ import com.egg.biblioteca.servicios.LibroServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -84,6 +81,48 @@ public class LibroControlador {
         modelo.addAttribute("libros",libros);
 
         return "libro_list.html";
+    }
+
+    @GetMapping("/modificar/{isbn}")
+    public String modificar(@PathVariable Long isbn, ModelMap modelo) {
+
+        modelo.put("libro", libroServicio.getOne(isbn));
+
+        List<Autor> autores = autorServicio.ListarAutores();
+        List<Editorial> editoriales = editorialServicio.ListarEditoriales();
+
+        modelo.addAttribute("autores", autores);
+        modelo.addAttribute("editoriales", editoriales);
+
+        return "libro_modificar.html";
+    }
+
+    @PostMapping("/modificar/{isbn}")
+    public String modificar(@PathVariable Long isbn, String titulo, Integer ejemplares, String idAutor, String idEditorial, ModelMap modelo) {
+        try {
+            List<Autor> autores = autorServicio.ListarAutores();
+            List<Editorial> editoriales = editorialServicio.ListarEditoriales();
+
+            modelo.addAttribute("autores", autores);
+            modelo.addAttribute("editoriales", editoriales);
+
+            libroServicio.modificarLibro(isbn, titulo, ejemplares, idAutor, idEditorial);
+
+
+            return "redirect:../lista";
+
+        } catch (MiException ex) {
+            List<Autor> autores = autorServicio.ListarAutores();
+            List<Editorial> editoriales = editorialServicio.ListarEditoriales();
+
+            modelo.put("error", ex.getMessage());
+
+            modelo.addAttribute("autores", autores);
+            modelo.addAttribute("editoriales", editoriales);
+
+            return "libro_modificar.html";
+        }
+
     }
 
 }

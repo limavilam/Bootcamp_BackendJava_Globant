@@ -62,7 +62,7 @@ public class LibroServicio {
     }
 
     //El método modificar esta vinculado a través del ID, tenemos que buscar el libro vinculado con el ID.
-    public void modificarLibro(Long isbn,String titulo,String idAutor,String idEditorial,Integer ejemplares) throws MiException{
+    public void modificarLibro(Long isbn, String titulo, Integer ejemplares, String idAutor, String idEditorial) throws MiException{
 
         validarLibro(isbn, titulo, ejemplares, idAutor, idEditorial);
 
@@ -102,6 +102,11 @@ public class LibroServicio {
 
         }
 
+    }
+
+   @Transactional(readOnly = true)
+    public Libro getOne(Long isbn){
+        return libroRepositorio.getOne(isbn);
     }
 
     //Para no repetir código creamos un nuevo método.
