@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Egg News - Noticia</title>
+    <!-- Agrega los enlaces a Bootstrap y tu archivo de estilo CSS aquí -->
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${noticia.titulo}"></h1>
+    <p th:text="${noticia.cuerpo}"></p>
+    <a href="#" class="btn btn-secondary" onclick="history.go(-1);">Volver</a>
+</div>
+</body>
+</html>
