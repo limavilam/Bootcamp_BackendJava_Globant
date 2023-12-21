@@ -15,8 +15,11 @@ public class Noticia {
     private String id;
     private String titulo;
 
-    @Column(length = 10000)
+    @Column(length = 1000)
     private String cuerpo;
+
+    @OneToOne
+    private Imagen imagen;
 
     @Column
     private boolean publicado;
@@ -30,10 +33,11 @@ public class Noticia {
     public Noticia() {
     }
 
-    public Noticia(String id, String titulo, String cuerpo, boolean publicado, Date fechaPublicacion, Periodista creador) {
+    public Noticia(String id, String titulo, String cuerpo, Imagen imagen, boolean publicado, Date fechaPublicacion, Periodista creador) {
         this.id = id;
         this.titulo = titulo;
         this.cuerpo = cuerpo;
+        this.imagen = imagen;
         this.publicado = publicado;
         this.fechaPublicacion = fechaPublicacion;
         this.creador = creador;
@@ -61,6 +65,14 @@ public class Noticia {
 
     public void setCuerpo(String cuerpo) {
         this.cuerpo = cuerpo;
+    }
+
+    public Imagen getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Imagen imagen) {
+        this.imagen = imagen;
     }
 
     public boolean isPublicado() {

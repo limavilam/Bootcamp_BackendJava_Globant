@@ -17,6 +17,7 @@ public class NoticiaServicio {
     @Autowired
     NoticiaRepositorio noticiaRepositorio;
 
+
     @Transactional
     public void guardarNoticia(String nombre) throws MiException {
 

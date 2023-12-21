@@ -11,6 +11,7 @@ import java.util.List;
 public class Periodista extends Usuario{
     @OneToMany
     private List<Noticia> misNoticias;
+    private Integer sueldoMensual;
 
 
     public Periodista() {
@@ -19,6 +20,7 @@ public class Periodista extends Usuario{
     public Periodista(String id, String nombreUsuario, String password, Date fechaDeAlta, Rol rol, Boolean activo, List<Noticia> misNoticias) {
         super(id,nombreUsuario, password, fechaDeAlta, rol, activo);
         this.misNoticias = misNoticias;
+        this.sueldoMensual = sueldoMensual;
     }
 
     public List<Noticia> getMisNoticias() {
@@ -27,5 +29,13 @@ public class Periodista extends Usuario{
 
     public void setMisNoticias(List<Noticia> misNoticias) {
         this.misNoticias = misNoticias;
+    }
+
+    public Integer getSueldoMensual() {
+        return sueldoMensual;
+    }
+
+    public void setSueldoMensual(Integer sueldoMensual) {
+        this.sueldoMensual = sueldoMensual;
     }
 }
