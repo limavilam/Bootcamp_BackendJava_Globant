@@ -1,13 +1,18 @@
 package com.NoticiasEgg.EggNews.servicios;
 
+import com.NoticiasEgg.EggNews.entidades.Imagen;
 import com.NoticiasEgg.EggNews.entidades.Noticia;
+import com.NoticiasEgg.EggNews.entidades.Periodista;
 import com.NoticiasEgg.EggNews.repositorios.NoticiaRepositorio;
 import com.NoticiasEgg.EggNews.excepciones.MiException;
+import com.NoticiasEgg.EggNews.repositorios.PeriodistaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,59 +20,91 @@ import java.util.Optional;
 public class NoticiaServicio {
 
     @Autowired
-    NoticiaRepositorio noticiaRepositorio;
+    private NoticiaRepositorio noticiaRepositorio;
 
+    @Autowired
+    private PeriodistaRepositorio periodistaRepositorio;
+    @Autowired
+    private ImagenServicio imagenServicio;
 
     @Transactional
-    public void guardarNoticia(String nombre) throws MiException {
+    public void crearNoticia(Noticia noticia, MultipartFile archivo, String idPeriodista) throws Exception {
 
-        validar(nombre);
+        validar(noticia, archivo);
 
-        //Recordemos que el ID del autor es generada de manera automática
+        Optional<Periodista> respuestaPeriodista = periodistaRepositorio.findById(idPeriodista);
 
-        Noticia noticia = new Noticia();
-        noticia.setNoticia(nombre);
+        Periodista periodista = new Periodista();
+
+        if(respuestaPeriodista.isPresent()){
+            periodista = respuestaPeriodista.get();
+        }
+
+        Imagen imagen = imagenServicio.guardar(archivo);
+
+        noticia.setImagen(imagen);
+        noticia.setCreador(periodista);
+        noticia.setFechaPublicacion(new Date());
+
         noticiaRepositorio.save(noticia);
-
     }
 
-    public List<Noticia> ConsultarNoticia(){
+    @Transactional
+    public void modificarNoticia(Noticia noticia, MultipartFile archivo, String idPeriodista) throws Exception {
 
-        List<Noticia> noticias = new ArrayList();
+        validar(noticia, archivo);
+
+        Optional<Noticia> respuestaNoticia = noticiaRepositorio.findById(noticia.getId());
+        Optional<Periodista> respuestaPeriodista = periodistaRepositorio.findById(idPeriodista);
+
+        Periodista periodista = new Periodista();
+
+        Imagen imagen = imagenServicio.guardar(archivo);
+
+        if(respuestaPeriodista.isPresent()){
+            periodista = respuestaPeriodista.get();
+        }
+
+        if(respuestaNoticia.isPresent()){
+            noticia.setImagen(imagen);
+            noticia.setCreador(periodista);
+        }
+
+        noticiaRepositorio.save(noticia);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Noticia> listaNoticias(){
+        List<Noticia> noticias = new ArrayList<>();
         noticias = noticiaRepositorio.findAll();
         return noticias;
     }
 
-    public void modificarNoticia(String nombre, String id) throws MiException{
+    public Optional<Noticia> getOne(String id){
+        return noticiaRepositorio.findById(id);
+    }
 
-        validar(nombre);
-
-        Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
-
-        if(respuesta.isPresent()){
-            Noticia noticia = respuesta.get();
-            noticia.setNoticia(nombre);
-            noticiaRepositorio.save(noticia);
+    private void validar(String titulo, String cuerpo, MultipartFile imagen) throws MiException {
+        if(titulo.isEmpty() || titulo==null){
+            throw new MiException("El título de la noticia no puede estar vacío");
+        }
+        if(cuerpo.isEmpty() || cuerpo==null){
+            throw new MiException("El cuerpo de la noticia no puede estar vacío");
+        }
+        if(imagen.isEmpty() || imagen==null){
+            throw new MiException("Debe cargar una imagen");
         }
     }
 
-    public void eliminarNoticia(String id)throws MiException {
-        if (id == null) {
-            throw new IllegalArgumentException("El id de la noticia no debe ser nulo");
+    private void validar(Noticia noticia, MultipartFile imagen) throws MiException {
+        if(noticia.getTitulo().isEmpty() || noticia==null){
+            throw new MiException("El título de la noticia no puede estar vacío");
         }
-
-        Noticia noticia = noticiaRepositorio.findById(id).orElse(null);
-        if (noticia == null) {
-            throw new MiException("La noticia no existe");
+        if(noticia.getCuerpo().isEmpty() || noticia==null){
+            throw new MiException("El cuerpo de la noticia no puede estar vacío");
         }
-
-        noticiaRepositorio.deleteById(String.valueOf(id));
-    }
-
-    private void validar(String nombre) throws MiException {
-
-        if (nombre.isEmpty() || nombre ==null){
-            throw new MiException("El nombre de la noticia no puede ser nulo o estar vacío");
+        if(imagen.isEmpty() || imagen==null){
+            throw new MiException("Debe cargar una imagen");
         }
     }
 

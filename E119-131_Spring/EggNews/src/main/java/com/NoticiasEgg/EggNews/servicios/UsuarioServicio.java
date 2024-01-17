@@ -36,6 +36,15 @@ public class UsuarioServicio implements UserDetailsService {
     @Autowired
     private PeriodistaRepositorio periodistaRepositorio;
 
+    public void actualizarRoleToPeriodista(Long id) {
+        usuarioRepositorio.updateRoleToPeriodista(String.valueOf(id));
+    }
+
+    public void actualizarRoleToUsuario(Long id) {
+        usuarioRepositorio.updateRoleToUsuario(String.valueOf(id));
+    }
+
+
     @Transactional
     public void crearUsuario(String nombreUsuario, String password, String password2) throws Exception{
         validar(nombreUsuario, password,password2);
@@ -102,12 +111,12 @@ public class UsuarioServicio implements UserDetailsService {
                 if (usuario.getRol().equals(Rol.USUARIO)) {
 
                     usuario.setRol(Rol.PERIODISTA);
-                    usuarioRepositorio.updateDtypePeriodista(id);
+                    usuarioRepositorio.updateRoleToPeriodista(id);
 
                 } else if (usuario.getRol().equals(Rol.PERIODISTA)) {
 
                     usuario.setRol(Rol.USUARIO);
-                    usuarioRepositorio.updateDtypeUsuario(id);
+                    usuarioRepositorio.updateRoleToUsuario(id);
                 }
             }else {
                 throw new MiException("No se puede cambiar el rol de ADMIN");
