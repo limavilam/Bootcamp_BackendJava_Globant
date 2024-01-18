@@ -13,7 +13,7 @@
     <ul class="navbar-nav ms-auto">
 
       <li class="nav-item">
-        <a class="nav-link " th:if="${session.usuariosession == null}" href="/registrar" id="navbarDropdown" role="button" aria-expanded="false">
+        <a class="nav-link " th:if="${session.usuariosession == null}" th:href="@{/registrar}" id="navbarDropdown" role="button" aria-expanded="false">
           Registrate
         </a>
       </li>
